@@ -1,4 +1,4 @@
-# DigitalFarmer
+# Yerson-profile
 
 Portafolio personal de **Yerson Cabrera Landa**, enfocado en desarrollo backend,
 APIs y automatización.
@@ -28,5 +28,3 @@ ejecuta `npm run build` y después `npm start`.
 - `app/estilos/` contiene los estilos por sección y los temas claro y oscuro.
 - `public/assets/` contiene los logos, las imágenes y las fuentes locales.
 - `tests/` contiene las pruebas del portafolio.
-# Yerson-profile
-# Yerson-profile
