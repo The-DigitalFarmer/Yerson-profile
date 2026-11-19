@@ -1,0 +1,31 @@
+.entrada-experiencia {
+  border-top: 1px solid var(--borde);
+}
+
+.resumen-experiencia {
+  display: grid;
+  gap: 8px;
+  padding: 20px 0;
+}
+
+.resumen-experiencia h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.empresa-experiencia {
+  color: var(--texto-cuerpo);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.detalle-experiencia {
+  padding-bottom: 24px;
+}
+
+.detalle-experiencia .lista-etiquetas {
+  margin-top: 16px;
+}

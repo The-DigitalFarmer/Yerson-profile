@@ -1,0 +1,86 @@
+/* Tema del sistema y preferencia elegida en la cabecera. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --fondo-pagina: #0d0b0a;
+  --superficie: #110f0d;
+  --fondo-tarjeta: #141210;
+  --texto: #ece6e0;
+  --texto-cuerpo: #b0a69e;
+  --texto-tenue: #9c928a;
+  --borde: #262220;
+  --borde-intenso: #332e2a;
+  --borde-hover: #57504a;
+  --superficie-hover: #1a1714;
+
+  --naranja-intenso: #ff6a1f;
+  --naranja-suave: #f74c001f;
+  --borde-naranja: #f74c0059;
+  --fondo-seleccion: #f74c0059;
+  --texto-seleccion: #fff;
+
+  --fondo-boton-principal: #f74c00;
+  --fondo-boton-principal-hover: #ff6a1f;
+  --texto-boton-principal: #0d0b0a;
+  --sombra-boton-principal: 0 1px 14px #f74c004d;
+  --borde-boton-secundario: #332e2a;
+  --fondo-boton-secundario-hover: #1a1714;
+  --filtro-github: none;
+  --texto-selector: #d6d3d1;
+  --texto-selector-hover: #ff8a4c;
+  --fondo-selector-hover: #f74c001a;
+  --borde-selector-hover: #f74c0066;
+  --fondo-enlace-activo: #1c120d;
+  --borde-enlace-activo: #4a2412;
+  --texto-enlace-activo: #fff;
+  --color-barra-desplazamiento: #262220;
+
+  --fondo-contacto: #141210;
+  --contorno-contacto: #262220;
+  --sombra-retrato: #000c;
+  --color-cuadricula: #ece6e00d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --fondo-pagina: #0d0b0a;
+    --superficie: #110f0d;
+    --fondo-tarjeta: #141210;
+    --texto: #ece6e0;
+    --texto-cuerpo: #b0a69e;
+    --texto-tenue: #9c928a;
+    --borde: #262220;
+    --borde-intenso: #332e2a;
+    --borde-hover: #57504a;
+    --superficie-hover: #1a1714;
+
+    --naranja-intenso: #ff6a1f;
+    --naranja-suave: #f74c001f;
+    --borde-naranja: #f74c0059;
+    --fondo-seleccion: #f74c0059;
+    --texto-seleccion: #fff;
+
+    --fondo-boton-principal: #f74c00;
+    --fondo-boton-principal-hover: #ff6a1f;
+    --texto-boton-principal: #0d0b0a;
+    --sombra-boton-principal: 0 1px 14px #f74c004d;
+    --borde-boton-secundario: #332e2a;
+    --fondo-boton-secundario-hover: #1a1714;
+    --filtro-github: none;
+    --texto-selector: #d6d3d1;
+    --texto-selector-hover: #ff8a4c;
+    --fondo-selector-hover: #f74c001a;
+    --borde-selector-hover: #f74c0066;
+    --fondo-enlace-activo: #1c120d;
+    --borde-enlace-activo: #4a2412;
+    --texto-enlace-activo: #fff;
+    --color-barra-desplazamiento: #262220;
+
+    --fondo-contacto: #141210;
+    --contorno-contacto: #262220;
+    --sombra-retrato: #000c;
+    --color-cuadricula: #ece6e00d;
+  }
+}
