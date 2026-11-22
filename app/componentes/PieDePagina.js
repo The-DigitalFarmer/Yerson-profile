@@ -13,7 +13,7 @@ export default function PieDePagina() {
         <div className="marca-pie">
           <a href="#inicio" aria-label="DigitalFarmer, inicio">
             <img src="/assets/svg/avatar.svg" alt="" width={44} height={44} />
-            <strong>RecklessCode</strong>
+            <strong>Renegade</strong>
           </a>
           <p>Python, APIs y automatización</p>
         </div>
@@ -42,7 +42,7 @@ export default function PieDePagina() {
         </nav>
       </div>
       <div className="datos-pie">
-        <span className="nombre-pie">Reckless Foundation</span>
+        <span className="nombre-pie">Renegade Foundation</span>
         <span className="derechos-pie">
           © <AnioCopyright anioInicial={new Date().getFullYear()} />
         </span>

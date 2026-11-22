@@ -99,7 +99,7 @@ export default function Cabecera() {
       <div className="contenido-cabecera">
         <a className="marca" href="#inicio" aria-label="DigitalFarmer, inicio" onClick={cerrarMenu}>
           <img src="/assets/svg/avatar.svg" alt="" width={32} height={32} />
-          <span>Reckless</span>
+          <span>Renegade</span>
         </a>
         <nav id="main-navigation" className="navegacion-escritorio" aria-label="Navegación principal">
           <EnlacesNavegacion seccionActiva={seccionActiva} alNavegar={cerrarMenu} />

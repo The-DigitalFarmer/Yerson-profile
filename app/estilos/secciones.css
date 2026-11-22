@@ -63,6 +63,10 @@
   letter-spacing: .08em;
 }
 
+#experience-title {
+    color: #4fc8ae;
+}
+
 .titulo-contenido {
   margin: 0 0 16px;
   font-size: clamp(28px, 3vw, 36px);
