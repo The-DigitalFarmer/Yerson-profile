@@ -1,20 +1,15 @@
 /* Cierre del portafolio: introducción y canales de contacto, sin ilustraciones. */
 .seccion-contacto {
   --texto: var(--texto-contacto);
-  --texto-cuerpo: var(--texto-secundario-contacto);
-  --texto-tenue: var(--texto-secundario-contacto);
-  --borde: var(--borde-contacto);
   --fondo-pagina: var(--fondo-contacto);
   margin-block: 48px;
   padding: clamp(32px, 5vw, 56px) var(--margen-seccion);
-  color: var(--texto-contacto);
+  color: var(--texto);
   scroll-margin-top: var(--margen-ancla);
 }
 
 .seccion-contacto::before {
-  background: var(--fondo-contacto);
   box-shadow: inset 0 0 0 1px var(--contorno-contacto);
-  border-radius: var(--radio-panel);
 }
 
 .seccion-contacto::after {
@@ -24,10 +19,6 @@
 .seccion-contacto .etiqueta-seccion {
   margin-bottom: 28px;
   color: var(--enlace-contacto);
-}
-
-.seccion-contacto a:focus-visible {
-  outline-color: var(--texto-contacto);
 }
 
 .seccion-contacto ::selection {
@@ -71,7 +62,6 @@
   min-width: 0;
 }
 
-/* Se conservan los colores, radios y hover de los botones originales. */
 .canal-contacto {
   display: flex;
   flex-direction: column;
@@ -79,7 +69,6 @@
   gap: 9px;
   padding: 17px 16px;
   border: 1px solid var(--borde-contacto);
-  border-radius: var(--radio-boton);
   background: var(--fondo-tarjeta-contacto);
 }
 

@@ -71,7 +71,10 @@ export default function FiguraAscii() {
         <span
           key={`${fila}/${columna}`}
           data-tipo={tipo}
-          style={{ gridArea: `${fila}/${columna}`, "--brillo": `${brillo}%` }}
+          style={{
+            gridArea: `${fila}/${columna}`,
+            "--brillo": tipo === "contorno" ? undefined : `${brillo}%`,
+          }}
         >
           {caracter}
         </span>

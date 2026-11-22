@@ -86,25 +86,10 @@
   text-align: center;
 }
 
-.datos-pie a {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-
 .enlace-inicio-pie {
   grid-column: 3;
   justify-self: end;
   font: 400 12px/1.5 var(--fuente-mono);
-}
-
-.icono-inicio-pie {
-  display: block;
-  flex-shrink: 0;
-  width: 72px;
-  height: 48px;
-  border-radius: 2px;
-  object-fit: contain;
 }
 
 @media (max-width: 700px) {

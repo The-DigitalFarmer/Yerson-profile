@@ -9,18 +9,16 @@ export default function Presentacion() {
       <div className="distribucion-presentacion">
         <div className="texto-presentacion">
           <h1 id="hero-title">
-            Backend
+            <span className="rol-presentacion">Backend</span>
             <br />
-            <span className="especialidad">Developer</span>
+            <span>Developer</span>
           </h1>
           <p className="subtitulo-presentacion">
             <span>Autodidacta</span>
           </p>
           <p className="descripcion-presentacion">
             Especializado en diseñar e implementar la arquitectura
-            <br />
-            lógica, APIs y bases de datos que dan vida al software
-            <br />
+            lógica, APIs y bases de datos que dan vida al software.
             Pasión por la automatización e Inteligencia Artificial
           </p>
           <div className="acciones-presentacion">

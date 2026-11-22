@@ -80,10 +80,10 @@ export const proyectos = [
     enlaceRepositorio: perfilGitHub,
     enlaceSitioWeb: perfilGitHub,
     imagen: {
-      ruta: "/assets/png/harvest-api.png",
-      ancho: 1832,
-      alto: 859,
-      textoAlternativo: "Cartel vintage de Harvest API sobre papel crema envejecido, con un servidor conectado a inventario, compras, entregas y una base de datos en tintas azul marino y rojo."
+      ruta: "/assets/webp/harvest-api-cover.webp",
+      ancho: 1280,
+      alto: 600,
+      textoAlternativo: "Ilustración 3D de un servidor conectado a cajas de inventario, un terminal de venta y una furgoneta de reparto."
     }
   },
   {
@@ -94,10 +94,10 @@ export const proyectos = [
     enlaceRepositorio: perfilGitHub,
     enlaceSitioWeb: perfilGitHub,
     imagen: {
-      ruta: "/assets/png/flowforge.png",
-      ancho: 1832,
-      alto: 859,
-      textoAlternativo: "Cartel vintage de Flowforge sobre papel crema envejecido, con un webhook, un engranaje y una campana conectados por flechas en tintas azul marino y rojo."
+      ruta: "/assets/webp/flowforge-cover.webp",
+      ancho: 1280,
+      alto: 600,
+      textoAlternativo: "Ilustración 3D de un webhook que envía una señal a un engranaje, conectado a una campana y a una marca de verificación."
     }
   },
   {
@@ -108,10 +108,10 @@ export const proyectos = [
     enlaceRepositorio: perfilGitHub,
     enlaceSitioWeb: perfilGitHub,
     imagen: {
-      ruta: "/assets/png/atlas-ai.png",
-      ancho: 1831,
-      alto: 859,
-      textoAlternativo: "Cartel vintage de Atlas AI sobre papel crema envejecido, con documentos, una red de conocimiento, una base de datos y una lupa en tintas azul marino y rojo."
+      ruta: "/assets/webp/atlas-ai-cover.webp",
+      ancho: 1280,
+      alto: 600,
+      textoAlternativo: "Ilustración 3D de documentos conectados a un grafo de conocimiento y a un núcleo que produce una respuesta con dos fuentes."
     }
   }
 ];

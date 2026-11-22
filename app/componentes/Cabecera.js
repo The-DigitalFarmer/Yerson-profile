@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { seccionesNavegacion } from "../contenido/navegacion";
-import SelectorTema from "./SelectorTema";
 
 const idInicio = seccionesNavegacion[0].id;
 
@@ -105,23 +104,20 @@ export default function Cabecera() {
         <nav id="main-navigation" className="navegacion-escritorio" aria-label="Navegación principal">
           <EnlacesNavegacion seccionActiva={seccionActiva} alNavegar={cerrarMenu} />
         </nav>
-        <div className="controles-cabecera">
-          <SelectorTema />
-          <details id="mobile-menu" className="menu-movil" ref={menu}>
-            <summary
-              className="control-menu"
-              aria-label="Menú de navegación"
-              aria-controls="mobile-navigation"
-              ref={controlMenu}
-            >
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </summary>
-            <nav id="mobile-navigation" aria-label="Navegación móvil">
-              <EnlacesNavegacion seccionActiva={seccionActiva} alNavegar={cerrarMenu} />
-            </nav>
-          </details>
-        </div>
+        <details id="mobile-menu" className="menu-movil" ref={menu}>
+          <summary
+            className="control-menu"
+            aria-label="Menú de navegación"
+            aria-controls="mobile-navigation"
+            ref={controlMenu}
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </summary>
+          <nav id="mobile-navigation" aria-label="Navegación móvil">
+            <EnlacesNavegacion seccionActiva={seccionActiva} alNavegar={cerrarMenu} />
+          </nav>
+        </details>
       </div>
     </header>
   );

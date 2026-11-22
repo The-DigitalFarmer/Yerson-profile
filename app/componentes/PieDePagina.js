@@ -1,4 +1,3 @@
-import Imagen from "next/image";
 import { canalesContacto } from "../contenido/canales";
 import { seccionesNavegacion } from "../contenido/navegacion";
 import AnioCopyright from "./AnioCopyright";
@@ -36,7 +35,7 @@ export default function PieDePagina() {
                 target={abreOtraPestana ? "_blank" : undefined}
                 rel={abreOtraPestana ? "noopener noreferrer" : undefined}
               >
-                {nombre} <span key="flecha" aria-hidden="true">↗</span>
+                {nombre} <span aria-hidden="true">↗</span>
               </a>
             );
           })}
@@ -48,8 +47,7 @@ export default function PieDePagina() {
           © <AnioCopyright anioInicial={new Date().getFullYear()} />
         </span>
         <a className="enlace-inicio-pie" href="#inicio">
-          <Imagen className="icono-inicio-pie" src="/assets/png/reacklessIcon.png" alt="" width={72} height={48} />
-          <span>Volver al inicio <span aria-hidden="true">↑</span></span>
+          Volver al inicio <span aria-hidden="true">↑</span>
         </a>
       </div>
     </footer>

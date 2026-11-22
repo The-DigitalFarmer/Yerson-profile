@@ -24,7 +24,7 @@ ejecuta `npm run build` y después `npm start`.
 - `app/page.js` y `app/layout.js` definen la página principal y su layout.
 - `app/componentes/` contiene las secciones y los controles de la interfaz.
 - `app/contenido/` reúne el contenido de las secciones, la navegación y los enlaces de contacto.
-- `app/logica/` contiene la lógica de la animación ASCII y las preferencias de tema.
-- `app/estilos/` contiene los estilos por sección y los temas claro y oscuro.
+- `app/logica/` contiene la lógica de la animación ASCII.
+- `app/estilos/` contiene los estilos por sección y el tema oscuro.
 - `public/assets/` contiene los logos, las imágenes y las fuentes locales.
 - `tests/` contiene las pruebas del portafolio.

@@ -10,8 +10,6 @@ import "./estilos/perfil.css";
 import "./estilos/proyectos.css";
 import "./estilos/experiencia.css";
 import "./estilos/contacto.css";
-import "./estilos/tema-oscuro.css";
-import { codigoTemaInicial } from "./logica/tema";
 
 export const metadata = {
   title: "Yerson - Profile",
@@ -19,14 +17,11 @@ export const metadata = {
   icons: "/assets/svg/avatar.svg",
 };
 
-export const viewport = { themeColor: "#ffffff" };
+export const viewport = { themeColor: "#171717", colorScheme: "dark" };
 
 export default function DisposicionPortafolio({ children: contenido }) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: codigoTemaInicial }} />
-      </head>
+    <html lang="es">
       <body>{contenido}</body>
     </html>
   );

@@ -43,7 +43,7 @@ function TarjetaProyecto({ proyecto }) {
                 aria-label={`${etiqueta} de ${nombre}`}
                 key={etiqueta}
               >
-                {etiqueta} <span key="flecha" aria-hidden="true">↗</span>
+                {etiqueta} <span aria-hidden="true">↗</span>
               </a>
             ))}
           </div>

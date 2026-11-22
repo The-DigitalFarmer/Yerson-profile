@@ -58,8 +58,8 @@
 
 .figura-ascii {
   --ancho-celda: clamp(9px, .89vw, 14px);
-  --relleno-rayo: color-mix(in srgb, var(--naranja) 64%, var(--texto-sobre-naranja));
-  --relleno-nucleo: color-mix(in srgb, var(--relleno-rayo) 28%, var(--texto-sobre-naranja));
+  --color-rayo: color-mix(in srgb, var(--naranja) 64%, var(--texto-sobre-naranja));
+  --color-nucleo: color-mix(in srgb, var(--color-rayo) 28%, var(--texto-sobre-naranja));
   top: var(--posicion-y-figura);
   left: var(--posicion-x-figura);
   transform: translate(-50%, -50%);
@@ -75,18 +75,12 @@
   opacity: .44;
 }
 
-.figura-ascii [data-tipo="rayo"],
-.figura-ascii [data-tipo="nucleo"] {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  background: color-mix(in srgb, var(--relleno-rayo) var(--brillo), var(--fondo-pagina));
-  color: var(--texto-sobre-naranja-intenso);
+.figura-ascii [data-tipo="rayo"] {
+  color: color-mix(in srgb, var(--color-rayo) var(--brillo), var(--fondo-pagina));
 }
 
 .figura-ascii [data-tipo="nucleo"] {
-  background: color-mix(in srgb, var(--relleno-nucleo) var(--brillo), var(--fondo-pagina));
+  color: color-mix(in srgb, var(--color-nucleo) var(--brillo), var(--fondo-pagina));
 }
 
 @media (max-width: 760px) {

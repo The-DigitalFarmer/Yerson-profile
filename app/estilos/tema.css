@@ -1,6 +1,3 @@
-/* Referencia: https://aprenderust.dev/ — consultado el 11-11-2026.
-   Tema claro y fuentes compartidas. Los valores oscuros están en tema-oscuro.css. */
-
 @font-face {
   font-family: 'Fira Sans';
   src: url('/assets/fonts/fira-sans-regular.woff2') format('woff2');
@@ -21,14 +18,6 @@
   font-family: 'Fira Sans';
   src: url('/assets/fonts/fira-sans-semibold.woff2') format('woff2');
   font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Fira Sans';
-  src: url('/assets/fonts/fira-sans-bold.woff2') format('woff2');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -57,50 +46,56 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'MEK Sans';
+  src: url('/assets/fonts/mek-sans-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   --fuente-texto: 'Fira Sans', system-ui, sans-serif;
   --fuente-mono: 'Fira Mono', ui-monospace, monospace;
   --fuente-titulos: 'Alfa Slab One', Georgia, serif;
+  --fuente-encabezados: 'MEK Sans', var(--fuente-mono);
 
-  --fondo-pagina: #fff;
-  --superficie: #fafaf9;
-  --fondo-tarjeta: #fff;
-  --texto: #1c1917;
-  --texto-cuerpo: #57534e;
-  --texto-tenue: #6b635d;
-  --borde: #e7e5e4;
-  --borde-intenso: #d6d3d1;
-  --borde-hover: #a8a29e;
-  --superficie-hover: #f5f5f4;
+  --fondo-pagina: #171717;
+  --fondo-cabecera: color-mix(in srgb, var(--fondo-pagina) 96%, transparent);
+  --borde-cabecera: var(--borde);
+  --borde-tarjeta-hover: var(--borde-naranja);
+  --superficie: #1c1c1c;
+  --fondo-tarjeta: #202020;
+  --texto: #ece6e0;
+  --texto-cuerpo: #b0a69e;
+  --texto-tenue: #9c928a;
+  --borde: #2d2d2d;
+  --borde-intenso: #332e2a;
+  --borde-hover: #57504a;
+  --superficie-hover: #262626;
 
   --naranja: #f74c00;
-  --naranja-intenso: #c2410c;
-  --naranja-suave: #fff4ed;
-  --borde-naranja: #fed7aa;
+  --naranja-intenso: #ff6a1f;
+  --naranja-suave: #f74c001f;
+  --borde-naranja: #f74c0059;
   --texto-sobre-naranja: #fff;
   --resplandor-naranja: #f74c001f;
-  --fondo-seleccion: #ffd8c2;
-  --texto-seleccion: #1c1917;
+  --fondo-seleccion: #f74c0059;
+  --texto-seleccion: #fff;
 
-  --fondo-boton-principal: #c2410c;
-  --fondo-boton-principal-hover: #9a3412;
-  --texto-boton-principal: #fff;
-  --borde-boton-secundario: #e7e5e4;
-  --fondo-boton-secundario-hover: #fff;
-  --filtro-github: brightness(0);
-  --texto-selector: #57534e;
-  --texto-selector-hover: #c2410c;
-  --fondo-selector-hover: #fff4ed;
-  --borde-selector-hover: #fed7aa;
-  --fondo-enlace-activo: #fff4ed;
-  --borde-enlace-activo: #fed7aa;
-  --texto-enlace-activo: #7c2d12;
-  --color-barra-desplazamiento: #d6d3d1;
+  --fondo-boton-principal: #f74c00;
+  --fondo-boton-principal-hover: #ff6a1f;
+  --texto-boton-principal: #0d0b0a;
+  --borde-boton-secundario: #332e2a;
+  --fondo-boton-secundario-hover: #1a1714;
+  --fondo-enlace-activo: #1c120d;
+  --borde-enlace-activo: #4a2412;
+  --texto-enlace-activo: #fff;
+  --color-barra-desplazamiento: #262220;
 
-  /* La sección de contacto toma el panel oscuro de cierre de la referencia. */
-  --fondo-contacto: #1c1917;
-  --contorno-contacto: transparent;
+  --fondo-contacto: #202020;
+  --contorno-contacto: #2d2d2d;
   --fondo-tarjeta-contacto: #141210;
   --fondo-contacto-hover: #1a1714;
   --texto-contacto: #ece6e0;
@@ -111,11 +106,8 @@
   --enlace-contacto: #ff8a4c;
   --texto-sobre-naranja-intenso: #0d0b0a;
 
-  --radio-boton: .6rem;
-  --radio-tarjeta: 1rem;
-  --radio-panel: 1.25rem;
   --duracion-transicion: .15s;
-  --sombra-boton-principal: 0 1px 10px #c2410c40;
-  --sombra-retrato: #1c191726;
-  --color-cuadricula: #78716c17;
+  --sombra-boton-principal: 0 1px 14px #f74c004d;
+  --sombra-retrato: #000c;
+  --color-cuadricula: #ece6e00d;
 }

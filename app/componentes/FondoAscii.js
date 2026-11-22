@@ -11,7 +11,10 @@ export default function FondoAscii() {
           <span
             key={`${fila}/${columna}`}
             data-destello={destella || undefined}
-            style={{ gridArea: `${fila}/${columna}`, "--desfase": `${-(fila + columna) % 9}s` }}
+            style={{
+              gridArea: `${fila}/${columna}`,
+              "--desfase": destella ? `${-(fila + columna) % 9}s` : undefined,
+            }}
           >
             {caracter}
           </span>

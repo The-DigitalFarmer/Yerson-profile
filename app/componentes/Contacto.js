@@ -44,12 +44,12 @@ export default function Contacto() {
               rel="noopener noreferrer"
               aria-label={etiquetaAccesible}
             >
-              <span className="cabecera-canal" key="cabecera">
+              <span className="cabecera-canal">
                 <IconoDeContacto canal={id} />
                 <span aria-hidden="true">↗</span>
               </span>
-              <strong key="nombre">{nombre}</strong>
-              <span className="invitacion-canal" key="invitacion">{invitacion}</span>
+              <strong>{nombre}</strong>
+              <span className="invitacion-canal">{invitacion}</span>
             </a>
           ))}
         </nav>

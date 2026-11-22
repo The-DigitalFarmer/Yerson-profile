@@ -54,13 +54,13 @@
 
 .etiqueta-seccion,
 .leyenda {
-  color: var(--naranja-intenso);
   font: 500 11px/1.6 var(--fuente-mono);
-  letter-spacing: .08em;
 }
 
 .etiqueta-seccion {
   margin: 0 0 24px;
+  color: var(--naranja-intenso);
+  letter-spacing: .08em;
 }
 
 .titulo-contenido {
@@ -75,7 +75,6 @@
 .tarjeta-proyecto {
   min-width: 0;
   border: 1px solid var(--borde);
-  border-radius: var(--radio-tarjeta);
   background: var(--fondo-tarjeta);
   transition: background-color var(--duracion-transicion), border-color var(--duracion-transicion);
 }
@@ -85,12 +84,11 @@
 .tarjeta-proyecto:hover,
 .tarjeta-proyecto:focus-within {
   background: var(--naranja-suave);
-  border-color: var(--borde-naranja);
+  border-color: var(--borde-tarjeta-hover);
 }
 
 .resumen-habilidades,
 .introduccion-enfoques {
-  border-radius: var(--radio-panel);
   background: radial-gradient(70% 90% at 0% 50%, var(--resplandor-naranja), transparent 70%), var(--superficie);
 }
 
@@ -131,7 +129,6 @@
   gap: 8px;
   padding: 7px 10px;
   border: 1px solid var(--borde);
-  border-radius: 999px;
   background: var(--superficie);
   font-size: 12px;
 }
