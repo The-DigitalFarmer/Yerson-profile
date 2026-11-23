@@ -75,8 +75,8 @@ export const proyectos = [
   {
     id: "harvest-api-title",
     nombre: "Harvest API",
-    tipo: "REST API · BACKEND",
-    descripcion: "El motor detrás de cada pedido. Una API para conectar inventario, ventas y entregas, con una arquitectura preparada para crecer.",
+    tipo: "Gestión de pedidos",
+    descripcion: "Conecta inventario, ventas y entregas para coordinar cada pedido desde la compra hasta el reparto.",
     enlaceRepositorio: perfilGitHub,
     enlaceSitioWeb: perfilGitHub,
     imagen: {
@@ -89,8 +89,8 @@ export const proyectos = [
   {
     id: "flowforge-title",
     nombre: "Flowforge",
-    tipo: "AUTOMATIZACIÓN · WORKFLOWS",
-    descripcion: "Menos tareas repetidas, más tiempo para crear. Flujos que conectan servicios, procesan eventos y automatizan el trabajo de todos los días.",
+    tipo: "Automatización",
+    descripcion: "Conecta aplicaciones para automatizar tareas repetitivas, como enviar un aviso cuando ocurre un cambio.",
     enlaceRepositorio: perfilGitHub,
     enlaceSitioWeb: perfilGitHub,
     imagen: {
@@ -101,17 +101,16 @@ export const proyectos = [
     }
   },
   {
-    id: "atlas-ai-title",
-    nombre: "Atlas AI",
-    tipo: "INTELIGENCIA ARTIFICIAL · RAG",
-    descripcion: "Tu conocimiento, a una pregunta de distancia. Un asistente que transforma documentos en respuestas claras, con contexto y fuentes verificables.",
-    enlaceRepositorio: perfilGitHub,
-    enlaceSitioWeb: perfilGitHub,
+    id: "pylearnai-title",
+    nombre: "PyLearnAI",
+    tipo: "En desarrollo",
+    descripcion: "Encuentra funciones de Python y ejemplos de uso desde la terminal, por nombre o describiendo lo que quieres hacer.",
+    enlaceRepositorio: "https://github.com/The-DigitalFarmer/PyLearnAI",
     imagen: {
-      ruta: "/assets/webp/atlas-ai-cover.webp",
+      ruta: "/assets/webp/pylearnai-python-terminal.webp",
       ancho: 1280,
       alto: 600,
-      textoAlternativo: "Ilustración 3D de documentos conectados a un grafo de conocimiento y a un núcleo que produce una respuesta con dos fuentes."
+      textoAlternativo: "Una lupa y una terminal conectadas a un módulo con el símbolo de Python. La pantalla muestra sorted(scores, reverse=True)."
     }
   }
 ];

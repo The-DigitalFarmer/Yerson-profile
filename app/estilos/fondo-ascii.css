@@ -27,7 +27,7 @@
     linear-gradient(var(--color-cuadricula) 1px, transparent 1px);
   background-size: var(--paso-cuadricula-ascii) var(--paso-cuadricula-ascii);
   background-position: center;
-  mask-image: radial-gradient(ellipse at 31% 46%, #0003 5%, #000a 55%, #000 90%);
+  mask-image: radial-gradient(ellipse at 28% 50%, transparent 16%, #0007 50%, #000 83%);
 }
 
 .fondo-ascii::after {
@@ -49,7 +49,7 @@
   color: var(--texto-tenue);
   font-size: clamp(9px, .9vw, 13px);
   opacity: .42;
-  mask-image: radial-gradient(ellipse at 31% 53%, transparent 8%, #000 66%);
+  mask-image: radial-gradient(ellipse at 28% 52%, transparent 23%, #0005 46%, #000 77%);
 }
 
 .campo-ascii [data-destello] {
@@ -92,7 +92,7 @@
   .campo-ascii {
     inset-inline: -12%;
     opacity: .32;
-    mask-image: linear-gradient(#000 35%, #0003 75%);
+    mask-image: linear-gradient(#000 32%, transparent 62%);
   }
 
   .figura-ascii {

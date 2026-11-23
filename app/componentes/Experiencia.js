@@ -8,13 +8,15 @@ export default function Experiencia() {
         <h2 className="titulo-contenido" id="experience-title">I was born programming</h2>
         <span className="leyenda">DISPONIBLE</span>
       </div>
-      <div className="cuadricula-contenido">
+      <div className="cronologia-experiencia">
         {experiencias.map((experiencia) => (
           <article className="entrada-experiencia" key={experiencia.titulo}>
             <header className="resumen-experiencia">
-              <span className="leyenda">{experiencia.fechas}</span>
+              <p className="fecha-experiencia">{experiencia.fechas}</p>
               <h3>{experiencia.titulo}</h3>
-              <span className="empresa-experiencia">{experiencia.empresa} <span>{experiencia.modalidad}</span></span>
+              <p className="empresa-experiencia">
+                <strong>{experiencia.empresa}</strong> <span>{experiencia.modalidad}</span>
+              </p>
             </header>
             <div className="detalle-experiencia">
               <p className="texto-cuerpo">{experiencia.resumen}</p>

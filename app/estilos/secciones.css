@@ -32,13 +32,6 @@
   scroll-margin-top: var(--margen-ancla);
 }
 
-.cuadricula-contenido {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: clamp(28px, 4vw, 60px);
-}
-
-.cuadricula-contenido > *,
 .tarjeta-proyecto > * {
   min-width: 0;
 }

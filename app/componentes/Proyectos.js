@@ -62,7 +62,7 @@ export default function Proyectos() {
     >
       <p className="etiqueta-seccion">PROJECTS</p>
       <div className="cabecera-seccion">
-        <h2 className="titulo-contenido" id="projects-title">Projects in Production</h2>
+        <h2 className="titulo-contenido" id="projects-title">Proyectos destacados</h2>
         <a
           className="todos-los-proyectos"
           href={`${perfilGitHub}?tab=repositories`}

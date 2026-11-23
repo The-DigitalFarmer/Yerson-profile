@@ -146,18 +146,11 @@
   }
 }
 
-.rotulo-perfil {
-  position: absolute;
-  left: 0;
-  right: 20px;
-  bottom: 100%;
-  margin-bottom: 10px;
-}
-
 .nombre-perfil {
-  font: 10px/1.5 var(--fuente-mono);
-  color: var(--texto-tenue);
-  letter-spacing: .08em;
+  margin: 0 0 14px;
+  color: var(--texto);
+  font: 500 .9375rem/1.5 var(--fuente-mono);
+  letter-spacing: .04em;
 }
 
 @media (max-width: 1050px) {
@@ -268,10 +261,6 @@
   .retrato {
     top: -18px;
     width: calc(100% + 12px);
-  }
-
-  .nombre-perfil {
-    font-size: 9px;
   }
 
   .acciones-presentacion {

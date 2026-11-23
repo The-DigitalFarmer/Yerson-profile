@@ -56,14 +56,13 @@
 }
 
 .tipo-proyecto {
-  margin: 0 0 20px;
+  margin: 0 0 10px;
   color: var(--naranja-intenso);
-  font: 500 11px/1.7 var(--fuente-mono);
-  letter-spacing: .3px;
+  font: 500 .8125rem/1.6 var(--fuente-mono);
 }
 
 .texto-proyecto h3 {
-  margin: 0 0 20px;
+  margin: 0 0 12px;
   color: var(--texto);
   font-size: clamp(22px, 2vw, 26px);
   font-weight: 600;

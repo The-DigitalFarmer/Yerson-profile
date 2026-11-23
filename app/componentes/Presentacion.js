@@ -8,6 +8,7 @@ export default function Presentacion() {
       <FondoAscii />
       <div className="distribucion-presentacion">
         <div className="texto-presentacion">
+          <p className="nombre-perfil">Yerson Cabrera Landa</p>
           <h1 id="hero-title">
             <span className="rol-presentacion">Backend</span>
             <br />
@@ -44,15 +45,12 @@ export default function Presentacion() {
           </a>
         </div>
         <div className="zona-perfil">
-          <div className="marco-perfil">
+          <div className="marco-perfil" aria-hidden="true">
             <span className="esquina-marco superior-izquierda"></span>
             <span className="esquina-marco superior-derecha"></span>
             <span className="esquina-marco inferior-izquierda"></span>
             <span className="esquina-marco inferior-derecha"></span>
             <div className="orbita-perfil" aria-hidden="true"></div>
-            <div className="rotulo-perfil">
-              <span className="nombre-perfil">YERSON CABRERA LANDA</span>
-            </div>
           </div>
           <img
             className="retrato"

@@ -63,6 +63,7 @@
 }
 
 .cabecera nav a {
+  position: relative;
   flex-shrink: 0;
   padding: 7px 10px;
   white-space: nowrap;
@@ -75,9 +76,17 @@
 }
 
 .cabecera nav .enlace-activo {
-  background: var(--fondo-enlace-activo);
   color: var(--texto-enlace-activo);
-  box-shadow: inset 0 0 0 1px var(--borde-enlace-activo);
+}
+
+.cabecera nav .enlace-activo::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 10px;
+  bottom: 3px;
+  width: 24px;
+  height: 2px;
+  background: var(--naranja-intenso);
 }
 
 .menu-movil {
