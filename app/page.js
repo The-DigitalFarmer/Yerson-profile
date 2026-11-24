@@ -1,28 +1,30 @@
-import Perfil from "./componentes/Perfil";
-import Contacto from "./componentes/Contacto";
-import Experiencia from "./componentes/Experiencia";
-import PieDePagina from "./componentes/PieDePagina";
-import Cabecera from "./componentes/Cabecera";
-import Presentacion from "./componentes/Presentacion";
-import Proyectos from "./componentes/Proyectos";
-import Habilidades from "./componentes/Habilidades";
+import Perfil from "./vistas/compartidos/componentes/Perfil";
+import ArteAscii from "./vistas/terminal/componentes/ArteAscii";
+import Contacto from "./vistas/compartidos/componentes/Contacto";
+import PieDePagina from "./vistas/compartidos/componentes/PieDePagina";
+import Cabecera from "./vistas/compartidos/componentes/Cabecera";
+import Certificados from "./vistas/compartidos/componentes/Certificados";
+import ConsolaPortafolio from "./vistas/terminal/componentes/ConsolaPortafolio";
+import Presentacion from "./vistas/compartidos/componentes/Presentacion";
+import Proyectos from "./vistas/compartidos/componentes/Proyectos";
+import Habilidades from "./vistas/compartidos/componentes/Habilidades";
 
 export default function PaginaPortafolio() {
   return (
     <>
       <a className="enlace-saltar" href="#inicio">Ir al contenido</a>
-      <Cabecera />
-      <main>
+      <Cabecera marcaAscii={<ArteAscii ruta="marca" />} />
+      <ConsolaPortafolio>
         <Presentacion />
         <div className="marco-contenido">
           <Habilidades />
           <Perfil />
           <Proyectos />
-          <Experiencia />
+          <Certificados />
           <Contacto />
         </div>
-      </main>
-      <div className="marco-contenido">
+      </ConsolaPortafolio>
+      <div className="marco-contenido marco-pie-portafolio">
         <PieDePagina />
       </div>
     </>

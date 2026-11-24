@@ -1,0 +1,114 @@
+.fondo-ascii {
+  --posicion-x-figura: min(82%, calc(50% + 454px));
+  --posicion-y-figura: 30%;
+  --paso-cuadricula-ascii: clamp(12px, 1.2vw, 20px);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  background:
+    radial-gradient(ellipse 33% 65% at var(--posicion-x-figura) var(--posicion-y-figura), var(--resplandor-naranja), transparent 93%),
+    radial-gradient(ellipse 30% 68% at left bottom, var(--naranja-suave), transparent 90%),
+    var(--fondo-pagina);
+}
+
+.fondo-ascii::before,
+.fondo-ascii::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.fondo-ascii::before {
+  background-image:
+    linear-gradient(to right, var(--color-cuadricula) 1px, transparent 1px),
+    linear-gradient(var(--color-cuadricula) 1px, transparent 1px);
+  background-size: var(--paso-cuadricula-ascii) var(--paso-cuadricula-ascii);
+  background-position: center;
+  mask-image: radial-gradient(ellipse at 28% 50%, transparent 16%, #0007 50%, #000 83%);
+}
+
+.fondo-ascii::after {
+  background: linear-gradient(to bottom, transparent 72%, var(--fondo-pagina));
+}
+
+.campo-ascii,
+.figura-ascii {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  font: 400 1rem/1 var(--fuente-mono-grafica);
+  letter-spacing: normal;
+}
+
+.campo-ascii {
+  inset: 10px 0 0;
+  grid-template-columns: repeat(var(--columnas), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--filas), minmax(0, 1fr));
+  color: var(--texto-tenue);
+  font-size: clamp(9px, .9vw, 13px);
+  opacity: .42;
+  mask-image: radial-gradient(ellipse at 28% 52%, transparent 23%, #0005 46%, #000 77%);
+}
+
+.campo-ascii [data-destello] {
+  color: var(--naranja-intenso);
+}
+
+.figura-ascii {
+  --ancho-celda: clamp(9px, .89vw, 14px);
+  --color-rayo: color-mix(in srgb, var(--naranja) 64%, var(--texto-sobre-naranja));
+  --color-nucleo: color-mix(in srgb, var(--color-rayo) 28%, var(--texto-sobre-naranja));
+  top: var(--posicion-y-figura);
+  left: var(--posicion-x-figura);
+  transform: translate(-50%, -50%);
+  grid-template-columns: repeat(var(--columnas), var(--ancho-celda));
+  grid-template-rows: repeat(var(--filas), calc(var(--ancho-celda) * var(--proporcion-celda)));
+  gap: 1px;
+  color: var(--naranja-intenso);
+  font-size: calc(var(--ancho-celda) * .9);
+  contain: layout paint;
+}
+
+.figura-ascii [data-tipo="contorno"] {
+  opacity: .44;
+}
+
+.figura-ascii [data-tipo="rayo"] {
+  color: color-mix(in srgb, var(--color-rayo) var(--brillo), var(--fondo-pagina));
+}
+
+.figura-ascii [data-tipo="nucleo"] {
+  color: color-mix(in srgb, var(--color-nucleo) var(--brillo), var(--fondo-pagina));
+}
+
+@media (max-width: 760px) {
+  .fondo-ascii {
+    --posicion-x-figura: 75%;
+    --posicion-y-figura: 22%;
+  }
+
+  .campo-ascii {
+    inset-inline: -12%;
+    opacity: .32;
+    mask-image: linear-gradient(#000 32%, transparent 62%);
+  }
+
+  .figura-ascii {
+    --ancho-celda: clamp(6px, 1.7vw, 9px);
+    opacity: .82;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .campo-ascii [data-destello] {
+    animation: destello-ascii 9s ease-in-out var(--desfase) infinite alternate;
+  }
+
+  @keyframes destello-ascii {
+    0%, 70% { opacity: .24; }
+    100% { opacity: 1; }
+  }
+}

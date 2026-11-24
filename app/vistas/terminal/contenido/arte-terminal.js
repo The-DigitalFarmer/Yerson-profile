@@ -1,0 +1,20 @@
+// Símbolos de texto para el modo Terminal.
+export const arteTerminal = {
+  marca: "[R]",
+  gmail: "[@]",
+  "github-social": "[#]",
+  "/assets/svg/avatar.svg": "[*]",
+  "/assets/svg/python.svg": [[">>", "#65a7d8"], [">", "#ffde57"]],
+  "/assets/png/fastapi.png": [["[", "#32c4b3"], ["API", "#ffffff"], ["]", "#32c4b3"]],
+  "/assets/png/docker.png": [["[::]", "#568bfa"]],
+  "/assets/svg/git.svg": [["±", "#ff6458"]],
+  "/assets/svg/github.svg": [["[gh]", "#ffffff"]],
+  "/assets/svg/postman.svg": [["GET", "#ff783f"]],
+  "/assets/png/vscode.png": [["</>", "#2aa9e8"]],
+  "/assets/svg/claude-code.svg": [["✳", "#dc805f"]],
+  "/assets/png/codex.png": [[">_", "#ffffff"]],
+  "/assets/svg/cursor.svg": [["▌", "#e9e6dc"]],
+  "/assets/png/open-code.png": [["$", "#ffffff"], ["_", "#b2b0b0"]],
+  "/assets/svg/linkedin.svg": "[in]",
+  "/assets/svg/whatsapp.svg": "[w]",
+};

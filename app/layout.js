@@ -1,15 +1,18 @@
-import "./estilos/tema.css";
-import "./estilos/global.css";
-import "./estilos/secciones.css";
-import "./estilos/cabecera.css";
-import "./estilos/pie-de-pagina.css";
-import "./estilos/presentacion.css";
-import "./estilos/fondo-ascii.css";
-import "./estilos/habilidades.css";
-import "./estilos/perfil.css";
-import "./estilos/proyectos.css";
-import "./estilos/experiencia.css";
-import "./estilos/contacto.css";
+import "./vistas/compartidos/estilos/tema.css";
+import "./vistas/compartidos/estilos/global.css";
+import "./vistas/compartidos/estilos/secciones.css";
+import "./vistas/compartidos/estilos/cabecera.css";
+import "./vistas/normal/estilos/navegacion.css";
+import "./vistas/compartidos/estilos/pie-de-pagina.css";
+import "./vistas/compartidos/estilos/presentacion.css";
+import "./vistas/normal/estilos/fondo-ascii.css";
+import "./vistas/compartidos/estilos/habilidades.css";
+import "./vistas/compartidos/estilos/perfil.css";
+import "./vistas/compartidos/estilos/proyectos.css";
+import "./vistas/compartidos/estilos/certificados.css";
+import "./vistas/compartidos/estilos/contacto.css";
+import "./vistas/terminal/estilos/terminal.css";
+import { prepararTema } from "./vistas/compartidos/logica/tema-portafolio";
 
 export const metadata = {
   title: "Yerson - Profile",
@@ -21,7 +24,10 @@ export const viewport = { themeColor: "#171717", colorScheme: "dark" };
 
 export default function DisposicionPortafolio({ children: contenido }) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: prepararTema }} />
+      </head>
       <body>{contenido}</body>
     </html>
   );

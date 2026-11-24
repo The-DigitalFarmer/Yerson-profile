@@ -1,0 +1,106 @@
+.resumen-habilidades {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 32px 16px 38px;
+  border: 1px solid var(--borde-intenso);
+  text-align: center;
+}
+
+.resumen-habilidades h2 {
+  margin: 0;
+  color: var(--texto);
+  font-size: clamp(21px, 2.5vw, 28px);
+  letter-spacing: -.6px;
+}
+
+.resumen-habilidades p {
+  margin: 0;
+  color: var(--texto-cuerpo);
+}
+
+.red-habilidades {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 24px;
+  padding-top: 32px;
+}
+
+.grupo-habilidades {
+  position: relative;
+  padding: 24px;
+}
+
+.grupo-habilidades::before,
+.grupo-habilidades:last-child:nth-child(odd)::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 33px;
+  border-left: 1px solid var(--borde-intenso);
+  pointer-events: none;
+}
+
+.grupo-habilidades:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.grupo-habilidades:last-child:nth-child(odd)::before {
+  bottom: calc(100% + 16px);
+  left: calc((100% - 24px) / 4);
+  width: calc((100% + 24px) / 2);
+  height: 17px;
+  border-right: 1px solid var(--borde-intenso);
+  border-bottom: 1px solid var(--borde-intenso);
+}
+
+.grupo-habilidades:last-child:nth-child(odd)::after {
+  height: 17px;
+}
+
+.grupo-habilidades h3 {
+  margin: 0 0 16px;
+  color: var(--texto-cuerpo);
+  font: 13px/1.6 var(--fuente-mono-grafica);
+  letter-spacing: 1px;
+}
+
+.insignia-herramienta {
+  background: var(--fondo-tarjeta);
+  font: 12px/1.6 var(--fuente-mono);
+}
+
+@media (max-width: 600px) {
+  .red-habilidades {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grupo-habilidades {
+    padding: 20px;
+  }
+
+  .grupo-habilidades:last-child:nth-child(odd)::before {
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 33px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .grupo-habilidades:last-child:nth-child(odd)::after {
+    display: none;
+  }
+}
+
+.avatar-habilidades {
+  display: block;
+  width: 160px;
+  height: auto;
+}
+
+.logo-herramienta {
+  width: 20px;
+  height: 20px;
+}

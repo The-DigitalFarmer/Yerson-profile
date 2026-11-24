@@ -1,0 +1,130 @@
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  height: var(--alto-cabecera);
+  border-bottom: 1px solid var(--borde-cabecera);
+  background: var(--fondo-cabecera);
+  backdrop-filter: blur(12px);
+}
+
+.contenido-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 100%;
+  padding: 0 var(--margen-pagina);
+}
+
+.marca {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  color: var(--texto);
+  font: 400 20px/1.1 var(--fuente-titulos);
+  letter-spacing: -.01em;
+}
+
+.marca img {
+  display: block;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.marca:hover img {
+  transform: translateX(3px) rotate(-6deg);
+}
+
+.cabecera nav,
+.controles-cabecera {
+  font: 400 12px/22px var(--fuente-mono);
+  letter-spacing: var(--espaciado-texto);
+}
+
+.controles-cabecera {
+  display: flex;
+  flex: 1 1 280px;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 768px;
+  margin-left: auto;
+}
+
+.selector-tema {
+  display: none;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-terminal-disponible] .selector-tema {
+  display: flex;
+}
+
+.boton-tema {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px 9px;
+  border: 1px solid var(--borde-hover);
+  border-radius: 4px;
+  background: var(--superficie);
+  color: var(--texto);
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.boton-tema:hover,
+.boton-tema[aria-pressed="true"] {
+  color: var(--naranja-intenso);
+}
+
+.boton-tema[aria-pressed="true"] {
+  border-color: var(--naranja-intenso);
+  background: var(--naranja-suave);
+}
+
+.boton-tema:focus-visible {
+  outline: 2px solid var(--texto);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1020px) {
+  .contenido-cabecera {
+    gap: 12px;
+  }
+
+  .controles-cabecera {
+    flex: none;
+  }
+
+  .boton-tema {
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contenido-cabecera {
+    gap: 8px;
+  }
+
+  .marca {
+    font-size: 16px;
+  }
+
+  .marca img {
+    width: 26px;
+    height: 26px;
+  }
+}

@@ -1,0 +1,108 @@
+.navegacion-escritorio {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  height: 44px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.navegacion-escritorio::-webkit-scrollbar {
+  display: none;
+}
+
+.cabecera nav a {
+  position: relative;
+  flex-shrink: 0;
+  padding: 7px 10px;
+  color: var(--texto);
+  white-space: nowrap;
+  transition: color var(--duracion-transicion), background-color var(--duracion-transicion);
+}
+
+.cabecera nav a:hover {
+  background: var(--superficie-hover);
+}
+
+.cabecera nav .enlace-activo::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 10px;
+  bottom: 3px;
+  width: 24px;
+  height: 2px;
+  background: var(--naranja-intenso);
+}
+
+.menu-movil {
+  display: none;
+}
+
+@media (max-width: 1020px) {
+  .navegacion-escritorio {
+    display: none;
+  }
+
+  .menu-movil {
+    display: block;
+  }
+
+  /* details/summary abre y cierra desde el primer renderizado, sin JavaScript. */
+  .control-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--texto);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .control-menu::-webkit-details-marker {
+    display: none;
+  }
+
+  .control-menu span {
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    transition: transform .2s;
+  }
+
+  .menu-movil[open] .control-menu span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .menu-movil[open] .control-menu span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .menu-movil nav {
+    display: flex;
+    position: absolute;
+    inset: 100% 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: calc(100svh - var(--alto-cabecera));
+    padding: 12px var(--margen-pagina) 20px;
+    overflow-y: auto;
+    background: var(--fondo-pagina);
+    border-bottom: 1px solid var(--borde);
+    font-size: 15px;
+  }
+
+  .menu-movil nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

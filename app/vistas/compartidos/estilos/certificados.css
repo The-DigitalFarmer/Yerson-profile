@@ -1,0 +1,49 @@
+.cuadricula-certificados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: 14px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tarjeta-certificado {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: clamp(14px, 2vw, 24px);
+}
+
+.imagen-certificado {
+  width: min(30%, 128px);
+  height: auto;
+  flex-shrink: 0;
+  border: 1px solid var(--borde);
+}
+
+.detalle-certificado {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.datos-certificado {
+  margin: 0 0 6px;
+  color: var(--texto-cuerpo);
+  font: 500 .8125rem/1.6 var(--fuente-mono);
+}
+
+.detalle-certificado h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.detalle-certificado a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: var(--naranja-intenso);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
