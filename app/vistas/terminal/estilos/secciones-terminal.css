@@ -154,7 +154,7 @@
 }
 
 [data-tema="terminal"] .consola-salida .resumen-habilidades h2 {
-  color: #72d7d2;
+  color: var(--color-navegacion-terminal);
 }
 
 [data-tema="terminal"] .consola-salida :is(.etiqueta-enfoque, .datos-certificado time) {
@@ -162,7 +162,7 @@
 }
 
 [data-tema="terminal"] .consola-salida .tipo-proyecto {
-  color: #e6bd70;
+  color: var(--color-listado-terminal);
 }
 
 [data-tema="terminal"] :is(.flecha-boton, .explorar-habilidades > span:first-child, .cabecera-canal > span) {
@@ -176,10 +176,6 @@
   border: 0;
   background: transparent;
   text-align: start;
-}
-
-[data-tema="terminal"] .resumen-habilidades .arte-terminal {
-  display: none;
 }
 
 [data-tema="terminal"] :is(.red-habilidades, .cuadricula-certificados, .canales-contacto) {
@@ -210,6 +206,9 @@
 [data-tema="terminal"] .introduccion-enfoques {
   grid-column: 1 / -1;
   grid-row: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 [data-tema="terminal"] .grupo-habilidades {
@@ -227,12 +226,6 @@
 [data-tema="terminal"] .grupo-habilidades::before,
 [data-tema="terminal"] .grupo-habilidades::after {
   display: none;
-}
-
-[data-tema="terminal"] .introduccion-enfoques {
-  padding: 0;
-  border: 0;
-  background: transparent;
 }
 
 [data-tema="terminal"] .introduccion-enfoques h2 span {
@@ -338,7 +331,6 @@
 }
 
 [data-tema="terminal"] .texto-contacto h2 {
-  --color-contacto-terminal: #72d7d2;
   width: max-content;
   max-width: 100%;
   margin-bottom: 10px;
@@ -351,7 +343,7 @@
 [data-tema="terminal"] .titulo-contacto-terminal {
   display: block;
   margin-bottom: 8px;
-  color: var(--color-contacto-terminal);
+  color: var(--color-navegacion-terminal);
   font: 400 min(.9625rem, 1.855cqi, 2.03cqh)/1 var(--fuente-mono-grafica);
   white-space: pre;
 }
@@ -363,9 +355,9 @@
 @media (forced-colors: none) {
   [data-tema="terminal"] .titulo-contacto-terminal {
     background-image: linear-gradient(
-      color-mix(in srgb, var(--color-contacto-terminal) 67%, white),
-      var(--color-contacto-terminal) 45%,
-      color-mix(in srgb, var(--color-contacto-terminal) 72%, black)
+      color-mix(in srgb, var(--color-navegacion-terminal) 67%, white),
+      var(--color-navegacion-terminal) 45%,
+      color-mix(in srgb, var(--color-navegacion-terminal) 72%, black)
     );
     background-clip: text;
     color: transparent;
@@ -373,7 +365,7 @@
 }
 
 [data-tema="terminal"] .texto-contacto h2 > span:last-child {
-  color: var(--color-contacto-terminal);
+  color: var(--color-navegacion-terminal);
 }
 
 [data-tema="terminal"] .canales-contacto {
@@ -432,11 +424,11 @@
   }
 
   [data-tema="terminal"] .pagina-terminal[data-activa="false"] {
-    display: none;
+    display: var(--pagina-inactiva-terminal, none);
   }
 
   [data-tema="terminal"] .controles-paginas-terminal {
-    display: flex;
+    display: var(--paginacion-terminal, flex);
     align-items: center;
     gap: 12px;
     margin-block: 4px;

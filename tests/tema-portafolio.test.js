@@ -1,42 +1,45 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { runInNewContext } from "node:vm";
+import { rutaRetrato } from "../app/vistas/compartidos/contenido/presentacion.js";
 import { claveTema, prepararTema } from "../app/vistas/compartidos/logica/tema-portafolio.js";
 
-function iniciarTema(navigator, { tactil = false, guardado = "terminal" } = {}) {
-  const raiz = {
-    atributos: new Map(),
-    dataset: {},
-    setAttribute(nombre, valor) {
-      this.atributos.set(nombre, valor);
-    },
-  };
-
+function iniciarTema(localStorage) {
+  const raiz = { dataset: {} };
+  const precargas = [];
   runInNewContext(prepararTema, {
-    navigator,
-    document: { documentElement: raiz },
-    matchMedia: () => ({ matches: tactil }),
-    localStorage: { getItem: (clave) => clave === claveTema ? guardado : null },
+    document: {
+      documentElement: raiz,
+      createElement: (etiqueta) => ({ etiqueta }),
+      head: { append: (elemento) => precargas.push(elemento) },
+    },
+    localStorage,
   });
-  return { disponible: raiz.atributos.has("data-terminal-disponible"), tema: raiz.dataset.tema };
+  return { tema: raiz.dataset.tema, precargas };
 }
 
-test("una computadora puede acceder a la terminal y recuperar su preferencia", () => {
-  const pcTactil = { platform: "Win32", userAgent: "Windows NT 10.0", maxTouchPoints: 10 };
-
-  assert.deepEqual(iniciarTema(pcTactil), { disponible: true, tema: "terminal" });
-  assert.deepEqual(iniciarTema(pcTactil, { guardado: null }), { disponible: true, tema: undefined });
+test("el portafolio abre en la vista normal sin una preferencia guardada", () => {
+  const { tema, precargas } = iniciarTema({ getItem: () => null });
+  assert.equal(tema, undefined);
+  assert.deepEqual(precargas, [{
+    etiqueta: "link",
+    rel: "preload",
+    as: "image",
+    href: rutaRetrato,
+    fetchPriority: "high",
+  }]);
 });
 
-test("celulares y tablets abren la vista normal aunque hayan guardado la terminal", () => {
-  const dispositivos = [
-    [{ platform: "iPhone", userAgent: "iPhone; CPU iPhone OS", maxTouchPoints: 5 }],
-    [{ platform: "Linux", userAgent: "Linux; Android 16; Pixel Tablet", maxTouchPoints: 10 }],
-    [{ platform: "MacIntel", userAgent: "Macintosh; Intel Mac OS X", maxTouchPoints: 5 }],
-    [{ platform: "Linux x86_64", userAgent: "X11; Linux x86_64", maxTouchPoints: 10 }, { tactil: true }],
-  ];
+test("el portafolio recupera la vista Terminal guardada sin precargar el retrato", () => {
+  const { tema, precargas } = iniciarTema({ getItem: (clave) => clave === claveTema ? "terminal" : null });
+  assert.equal(tema, "terminal");
+  assert.deepEqual(precargas, []);
+});
 
-  for (const [navegador, opciones] of dispositivos) {
-    assert.deepEqual(iniciarTema(navegador, opciones), { disponible: false, tema: undefined });
-  }
+test("el portafolio abre en la vista normal si el almacenamiento está bloqueado", () => {
+  assert.equal(iniciarTema({
+    getItem() {
+      throw new Error("Almacenamiento bloqueado");
+    },
+  }).tema, undefined);
 });

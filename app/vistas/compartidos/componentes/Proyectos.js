@@ -2,6 +2,8 @@ import Imagen from "next/image";
 import { perfilGitHub } from "../contenido/canales";
 import { proyectos } from "../contenido/portafolio";
 import PaginasTerminal from "../../terminal/componentes/PaginasTerminal";
+import EnlaceExterno from "./EnlaceExterno";
+import SeccionPortafolio from "./SeccionPortafolio";
 
 // Hasta 800 px la cuadrícula usa una columna. En pantallas más amplias usa tres.
 const tamanosImagen = [
@@ -36,16 +38,14 @@ function TarjetaProyecto({ proyecto }) {
         {enlaces.length > 0 && (
           <div className="acciones-proyecto">
             {enlaces.map(({ etiqueta, url }) => (
-              <a
+              <EnlaceExterno
                 className="enlace-proyecto"
                 href={url}
-                target="_blank"
-                rel="noopener noreferrer"
                 aria-label={`${etiqueta} de ${nombre}`}
                 key={etiqueta}
               >
                 {etiqueta} <span aria-hidden="true">↗</span>
-              </a>
+              </EnlaceExterno>
             ))}
           </div>
         )}
@@ -56,28 +56,26 @@ function TarjetaProyecto({ proyecto }) {
 
 export default function Proyectos() {
   return (
-    <section
-      className="seccion-proyectos seccion-contenido superficie-seccion"
+    <SeccionPortafolio
+      className="seccion-contenido seccion-proyectos"
       id="proyectos"
-      aria-labelledby="projects-title"
+      tituloId="projects-title"
+      etiqueta="PROJECTS"
     >
-      <p className="etiqueta-seccion">PROJECTS</p>
       <div className="cabecera-seccion">
         <h2 className="titulo-contenido" id="projects-title">Proyectos destacados</h2>
-        <a
+        <EnlaceExterno
           className="todos-los-proyectos"
           href={`${perfilGitHub}?tab=repositories`}
-          target="_blank"
-          rel="noopener noreferrer"
         >
           Ver todos <span aria-hidden="true">→</span>
-        </a>
+        </EnlaceExterno>
       </div>
       <div className="cuadricula-proyectos">
         <PaginasTerminal etiqueta="Páginas de Proyectos">
           {proyectos.map((proyecto) => <TarjetaProyecto proyecto={proyecto} key={proyecto.id} />)}
         </PaginasTerminal>
       </div>
-    </section>
+    </SeccionPortafolio>
   );
 }

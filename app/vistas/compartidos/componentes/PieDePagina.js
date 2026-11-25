@@ -1,6 +1,7 @@
 import { canalesContacto } from "../contenido/canales";
 import { seccionesNavegacion } from "../contenido/navegacion";
 import AnioCopyright from "./AnioCopyright";
+import EnlaceExterno from "./EnlaceExterno";
 
 const seccionesExplorables = seccionesNavegacion.filter(({ id }) => (
   id !== "inicio" && id !== "contacto"
@@ -12,7 +13,7 @@ export default function PieDePagina() {
       <div className="cuadricula-pie">
         <div className="marca-pie">
           <a href="#inicio" aria-label="DigitalFarmer, inicio">
-            <img src="/assets/svg/avatar.svg" alt="" width={44} height={44} />
+            <img src="/assets/svg/avatar.svg" alt="" width={44} height={44} loading="lazy" />
             <strong>Renegade</strong>
           </a>
           <p>Python, APIs y automatización</p>
@@ -25,20 +26,11 @@ export default function PieDePagina() {
         </nav>
         <nav className="columna-pie" aria-label="Canales de contacto">
           <h3>CONECTEMOS</h3>
-          {canalesContacto.map(({ id, enlace, nombre }) => {
-            const abreOtraPestana = enlace.startsWith("https:");
-
-            return (
-              <a
-                href={enlace}
-                key={id}
-                target={abreOtraPestana ? "_blank" : undefined}
-                rel={abreOtraPestana ? "noopener noreferrer" : undefined}
-              >
-                {nombre} <span aria-hidden="true">↗</span>
-              </a>
-            );
-          })}
+          {canalesContacto.map(({ id, enlace, nombre }) => (
+            <EnlaceExterno href={enlace} key={id} nuevaPestana={enlace.startsWith("https:")}>
+              {nombre} <span aria-hidden="true">↗</span>
+            </EnlaceExterno>
+          ))}
         </nav>
       </div>
       <div className="datos-pie">

@@ -1,7 +1,6 @@
-import { idInicio, seccionesNavegacion } from "../../compartidos/contenido/navegacion.js";
+import { esSeccion, idInicio, seccionesNavegacion } from "../../compartidos/contenido/navegacion.js";
 
-const directorios = new Set(seccionesNavegacion.map(({ id }) => id));
-const listado = Array.from(directorios, (id) => `${id}/`).join("  ");
+const listado = seccionesNavegacion.map(({ id }) => `${id}/`).join("  ");
 
 export function interpretarComando(comando) {
   const entrada = comando.trim().toLowerCase();
@@ -15,7 +14,7 @@ export function interpretarComando(comando) {
 
   const destino = argumentos.join(" ").replace(/^\.\//, "").replace(/\/$/, "");
   if (!destino || destino === "..") return { tipo: "navegacion", destino: idInicio };
-  if (directorios.has(destino)) return { tipo: "navegacion", destino };
+  if (esSeccion(destino)) return { tipo: "navegacion", destino };
 
   return { tipo: "error", texto: "Esa sección no existe. Usa ls para ver las disponibles." };
 }

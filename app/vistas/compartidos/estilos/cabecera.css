@@ -57,14 +57,10 @@
 }
 
 .selector-tema {
-  display: none;
+  display: flex;
   flex-shrink: 0;
   align-items: center;
   gap: 6px;
-}
-
-[data-terminal-disponible] .selector-tema {
-  display: flex;
 }
 
 .boton-tema {
@@ -126,5 +122,13 @@
   .marca img {
     width: 26px;
     height: 26px;
+  }
+
+  .boton-tema {
+    padding-inline: 5px;
+  }
+
+  .boton-tema > span {
+    display: none;
   }
 }

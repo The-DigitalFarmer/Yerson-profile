@@ -1,23 +1,14 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import Imagen from "next/image";
 import { gruposHabilidades } from "../contenido/portafolio";
 import ArteAscii from "../../terminal/componentes/ArteAscii";
-
-const rutasDeLogos = gruposHabilidades.flatMap(({ herramientas }) => (
-  herramientas.map(({ logo }) => logo).filter(Boolean)
-));
-const logosDisponibles = new Set(
-  rutasDeLogos.filter((ruta) => existsSync(join(process.cwd(), "public", ruta))),
-);
+import SeccionPortafolio from "./SeccionPortafolio";
 
 export default function Habilidades() {
   const avatar = "/assets/svg/avatar.svg";
   const descripcionAvatar = "Personaje crema con cuernos curvos y ojos negros.";
 
   return (
-    <section className="seccion-contenido superficie-seccion" id="habilidades" aria-labelledby="skills-title">
-      <p className="etiqueta-seccion">SKILLS</p>
+    <SeccionPortafolio id="habilidades" tituloId="skills-title" etiqueta="SKILLS">
       <div className="resumen-habilidades">
         <img
           className="avatar-habilidades"
@@ -28,7 +19,6 @@ export default function Habilidades() {
           loading="lazy"
           decoding="async"
         />
-        <ArteAscii ruta={avatar} />
         <h2 id="skills-title">Stack</h2>
         <p>Herramientas que convierten ideas en código</p>
       </div>
@@ -39,10 +29,12 @@ export default function Habilidades() {
             <ul className="lista-herramientas" aria-label={etiquetaAccesible}>
               {herramientas.map(({ nombre, logo }) => (
                 <li className="insignia-herramienta" key={nombre}>
-                  {logosDisponibles.has(logo) && (
-                    <Imagen className="logo-herramienta" src={logo} alt="" width={20} height={20} />
+                  {logo && (
+                    <>
+                      <Imagen className="logo-herramienta" src={logo} alt="" width={20} height={20} />
+                      <ArteAscii ruta={logo} />
+                    </>
                   )}
-                  {logo && <ArteAscii ruta={logo} />}
                   <span>{nombre}</span>
                 </li>
               ))}
@@ -50,6 +42,6 @@ export default function Habilidades() {
           </div>
         ))}
       </div>
-    </section>
+    </SeccionPortafolio>
   );
 }

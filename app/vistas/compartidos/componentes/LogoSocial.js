@@ -5,7 +5,7 @@ export default function LogoSocial({ nombre }) {
 
   return (
     <>
-      <img className="logo-social" src={ruta} alt="" aria-hidden="true" width={24} height={24} decoding="async" />
+      <img className="logo-social" src={ruta} alt="" aria-hidden="true" width={24} height={24} loading="lazy" decoding="async" />
       <ArteAscii ruta={nombre === "github" ? "github-social" : ruta} />
     </>
   );

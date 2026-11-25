@@ -1,13 +1,14 @@
 import { perfilGitHub } from "../contenido/canales";
+import { rutaRetrato } from "../contenido/presentacion";
 import ArteInicioTerminal from "../../terminal/componentes/ArteInicioTerminal";
 import FondoAscii from "../../normal/componentes/FondoAscii";
 import LogoSocial from "./LogoSocial";
+import EnlaceExterno from "./EnlaceExterno";
 
 const nombre = "Yerson Cabrera Landa";
 const descripcion = "Especializado en diseñar e implementar la arquitectura lógica, APIs y bases de datos que dan vida al software. Pasión por la automatización e Inteligencia Artificial";
 
 export default function Presentacion() {
-  const retrato = "/assets/svg/gilfoyle.svg";
   const descripcionRetrato = "Gilfoyle con gafas, cabello largo y camisa a cuadros.";
 
   return (
@@ -34,15 +35,10 @@ export default function Presentacion() {
               </span>
               <code className="ficha-terminal ficha-terminal-navegacion ficha-terminal-contenido">cd proyectos</code>
             </a>
-            <a
-              className="boton boton-secundario"
-              href={perfilGitHub}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <EnlaceExterno className="boton boton-secundario" href={perfilGitHub}>
               <LogoSocial nombre="github" /> GitHub
               <span aria-hidden="true">↗</span>
-            </a>
+            </EnlaceExterno>
           </div>
           <a className="explorar-habilidades" href="#habilidades">
             <span aria-hidden="true">↓</span> Descubre mi stack
@@ -60,10 +56,11 @@ export default function Presentacion() {
           </div>
           <img
             className="retrato"
-            src={retrato}
+            src={rutaRetrato}
             width="600"
             height="820"
             alt={descripcionRetrato}
+            loading="lazy"
             fetchPriority="high"
           />
         </div>

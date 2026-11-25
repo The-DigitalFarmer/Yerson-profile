@@ -37,7 +37,7 @@ export default function Cabecera({ marcaAscii }) {
     <header className="cabecera" ref={cabecera}>
       <div className="contenido-cabecera">
         <a className="marca" href="#inicio" aria-label="DigitalFarmer, inicio" onClick={cerrarMenu}>
-          <img src="/assets/svg/avatar.svg" alt="" width={32} height={32} />
+          <img src="/assets/svg/avatar.svg" alt="" width={32} height={32} loading="lazy" />
           {marcaAscii}
           <span>Renegade</span>
         </a>

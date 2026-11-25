@@ -20,7 +20,7 @@ export function usarCambioDeVista(leerSeccionNormal) {
     const vistaActual = terminalActiva ? "terminal" : "normal";
     const vistaDestino = activarTerminal ? "terminal" : "normal";
     const seccionActual = terminalActiva ? leerSeccionDelFragmento() : leerSeccionNormal();
-    if (!seleccionarTemaTerminal(activarTerminal)) return;
+    seleccionarTemaTerminal(activarTerminal);
 
     const secciones = seccionesGuardadas.current;
     secciones[vistaActual] = seccionActual;

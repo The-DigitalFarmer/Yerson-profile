@@ -1,3 +1,7 @@
+:root:not([data-tema="terminal"]) #titulo-certificados {
+  color: #4fc8ae;
+}
+
 .cuadricula-certificados {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));

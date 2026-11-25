@@ -1,10 +1,10 @@
 import { enfoques } from "../contenido/portafolio";
 import PaginasTerminal from "../../terminal/componentes/PaginasTerminal";
+import SeccionPortafolio from "./SeccionPortafolio";
 
 export default function Perfil() {
   return (
-    <section className="seccion-contenido superficie-seccion" id="sobre-mi" aria-labelledby="about-title">
-      <p className="etiqueta-seccion">ABOUT</p>
+    <SeccionPortafolio id="sobre-mi" tituloId="about-title" etiqueta="ABOUT">
       <div className="cuadricula-enfoques">
         <header className="introduccion-enfoques">
           <h2 id="about-title"><span>Deep</span> <span>Focus</span></h2>
@@ -28,6 +28,6 @@ export default function Perfil() {
           <a href="#contacto">Conversemos <span aria-hidden="true">→</span></a>
         </nav>
       </div>
-    </section>
+    </SeccionPortafolio>
   );
 }

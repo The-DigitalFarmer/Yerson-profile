@@ -14,7 +14,6 @@ function suscribir(alCambiar) {
 
 export function seleccionarTemaTerminal(activar) {
   const raiz = document.documentElement;
-  if (activar && !raiz.hasAttribute("data-terminal-disponible")) return false;
 
   if (activar) raiz.dataset.tema = "terminal";
   else delete raiz.dataset.tema;
@@ -26,7 +25,6 @@ export function seleccionarTemaTerminal(activar) {
   }
 
   window.dispatchEvent(new Event(cambioTema));
-  return true;
 }
 
 export function usarTemaTerminal() {

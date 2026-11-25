@@ -32,7 +32,7 @@ export default function EntradaTerminal({ seccion, alNavegar, campo }) {
             <code className="ficha-terminal ficha-terminal-listado">ls</code>
             <code className="ficha-terminal ficha-terminal-navegacion">cd &lt;sección&gt;</code>
           </div>
-          <p className="consola-atajos">Menú: ↑/↓ · Enter para abrir</p>
+          <p className="consola-atajos">Secciones ↑/↓ · Enlaces ←/→ · Enter para abrir</p>
         </div>
         <div className="consola-linea-comando">
           <span aria-hidden="true">❯</span>

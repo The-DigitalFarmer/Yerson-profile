@@ -28,9 +28,3 @@ después `npm start`.
 - `app/vistas/compartidos/` contiene el contenido, las secciones, los estilos base y los hooks para leer el fragmento y recordar la sección de cada vista.
 - `public/assets/` contiene los logos, las imágenes y las fuentes locales.
 - `tests/` contiene las pruebas del portafolio.
-
-Los sprites de Ferris y la ninfa son de
-[Marc Duiker](https://marcduiker.dev/pixelart/) y vienen de
-[VS Code Pets 1.37.0](https://github.com/tonybaloney/vscode-pets/tree/1.37.0/media).
-La [licencia del proyecto de origen](public/assets/mascotas/LICENSE.vscode-pets.txt)
-acompaña a los archivos.

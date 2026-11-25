@@ -66,11 +66,6 @@
   letter-spacing: 1px;
 }
 
-.insignia-herramienta {
-  background: var(--fondo-tarjeta);
-  font: 12px/1.6 var(--fuente-mono);
-}
-
 @media (max-width: 600px) {
   .red-habilidades {
     grid-template-columns: minmax(0, 1fr);

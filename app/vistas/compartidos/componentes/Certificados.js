@@ -1,9 +1,11 @@
 import Imagen from "next/image";
 import { certificados } from "../contenido/portafolio";
+import EnlaceExterno from "./EnlaceExterno";
+import SeccionPortafolio from "./SeccionPortafolio";
 
 export default function Certificados() {
   return (
-    <section className="seccion-contenido superficie-seccion" id="certificados" aria-labelledby="titulo-certificados">
+    <SeccionPortafolio id="certificados" tituloId="titulo-certificados">
       <h2 className="titulo-contenido" id="titulo-certificados">Certificados</h2>
       <ul className="cuadricula-certificados">
         {certificados.map(({ id, nombre, institucion, anio, imagen, enlace }) => (
@@ -23,13 +25,13 @@ export default function Certificados() {
                 {institucion} <span aria-hidden="true">·</span> <time dateTime={String(anio)}>{anio}</time>
               </p>
               <h3>{nombre}</h3>
-              <a href={enlace} target="_blank" rel="noopener noreferrer" aria-label={`Ver credencial de ${nombre}`}>
+              <EnlaceExterno href={enlace} aria-label={`Ver credencial de ${nombre}`}>
                 Ver credencial <span aria-hidden="true">↗</span>
-              </a>
+              </EnlaceExterno>
             </div>
           </li>
         ))}
       </ul>
-    </section>
+    </SeccionPortafolio>
   );
 }

@@ -9,8 +9,14 @@ export const seccionesNavegacion = [
   { id: "contacto", etiqueta: "Contacto" },
 ];
 
-const idsPorFragmento = new Map(seccionesNavegacion.map(({ id }) => [`#${id}`, id]));
+const idsSecciones = new Set(seccionesNavegacion.map(({ id }) => id));
+
+export function esSeccion(id) {
+  return idsSecciones.has(id);
+}
 
 export function seccionDesdeFragmento(fragmento) {
-  return idsPorFragmento.get(fragmento);
+  if (typeof fragmento !== "string" || !fragmento.startsWith("#")) return undefined;
+  const id = fragmento.slice(1);
+  return esSeccion(id) ? id : undefined;
 }

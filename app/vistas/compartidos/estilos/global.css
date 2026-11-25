@@ -142,6 +142,7 @@ h3 {
 }
 
 .boton,
+.enlace-proyecto,
 .canal-contacto {
   transition: background-color var(--duracion-transicion), border-color var(--duracion-transicion), color var(--duracion-transicion);
 }

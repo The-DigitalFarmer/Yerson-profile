@@ -1,7 +1,21 @@
-import { columnasCampo, crearCampoAscii, filasCampo } from "../logica/animacion-ascii";
+import {
+  columnasCampo,
+  columnasFigura,
+  crearCampoAscii,
+  filasCampo,
+  filasFigura,
+  obtenerFotogramaAscii,
+  proporcionCelda,
+} from "../logica/animacion-ascii";
+import CeldasFiguraAscii from "./CeldasFiguraAscii";
 import FiguraAscii from "./FiguraAscii";
 
 const celdasCampo = crearCampoAscii();
+const estiloFigura = {
+  "--columnas": columnasFigura,
+  "--filas": filasFigura,
+  "--proporcion-celda": proporcionCelda,
+};
 
 export default function FondoAscii() {
   return (
@@ -20,7 +34,9 @@ export default function FondoAscii() {
           </span>
         ))}
       </div>
-      <FiguraAscii />
+      <FiguraAscii estilo={estiloFigura}>
+        <CeldasFiguraAscii celdas={obtenerFotogramaAscii()} />
+      </FiguraAscii>
     </div>
   );
 }

@@ -5,7 +5,6 @@
   margin-block: 48px;
   padding: clamp(32px, 5vw, 56px) var(--margen-seccion);
   color: var(--texto);
-  scroll-margin-top: var(--margen-ancla);
 }
 
 .seccion-contacto::before {

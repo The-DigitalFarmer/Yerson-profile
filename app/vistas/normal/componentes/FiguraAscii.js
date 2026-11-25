@@ -1,20 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import {
-  columnasFigura,
-  filasFigura,
-  fotogramasPorCiclo,
-  obtenerFotogramaAscii,
-  proporcionCelda,
-} from "../logica/animacion-ascii";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { usarTemaTerminal } from "../../compartidos/logica/usar-tema-terminal";
 
-const intervaloFotogramaMs = 110;
+const FiguraAsciiAnimada = lazy(() => import("./FiguraAsciiAnimada"));
 
-export default function FiguraAscii() {
+export default function FiguraAscii({ estilo, children }) {
   const figura = useRef(null);
-  const [fotograma, cambiarFotograma] = useState(0);
+  const [reproduccion, cambiarReproduccion] = useState("inicial");
   const temaTerminal = usarTemaTerminal();
 
   useEffect(() => {
@@ -22,23 +15,13 @@ export default function FiguraAscii() {
 
     const movimientoReducido = window.matchMedia("(prefers-reduced-motion: reduce)");
     let figuraVisible = false;
-    let temporizador;
 
     function sincronizarReproduccion() {
-      if (figuraVisible && !document.hidden && !movimientoReducido.matches) {
-        temporizador ??= window.setInterval(() => {
-          cambiarFotograma((actual) => (actual + 1) % fotogramasPorCiclo);
-        }, intervaloFotogramaMs);
-        return;
-      }
-
-      window.clearInterval(temporizador);
-      temporizador = undefined;
-    }
-
-    function actualizarPreferenciaDeMovimiento() {
-      sincronizarReproduccion();
-      if (movimientoReducido.matches) cambiarFotograma(0);
+      cambiarReproduccion((anterior) => {
+        if (movimientoReducido.matches) return "inicial";
+        if (figuraVisible && !document.hidden) return "activa";
+        return anterior === "inicial" ? "inicial" : "pausada";
+      });
     }
 
     const observador = new IntersectionObserver(([entrada]) => {
@@ -49,40 +32,22 @@ export default function FiguraAscii() {
     const eventos = new AbortController();
     const opciones = { signal: eventos.signal };
     observador.observe(figura.current);
-    movimientoReducido.addEventListener("change", actualizarPreferenciaDeMovimiento, opciones);
+    movimientoReducido.addEventListener("change", sincronizarReproduccion, opciones);
     document.addEventListener("visibilitychange", sincronizarReproduccion, opciones);
 
     return () => {
       observador.disconnect();
-      window.clearInterval(temporizador);
       eventos.abort();
     };
   }, [temaTerminal]);
 
-  const celdas = obtenerFotogramaAscii(temaTerminal ? 0 : fotograma);
-
   return (
-    <div
-      className="figura-ascii"
-      ref={figura}
-      style={{
-        "--columnas": columnasFigura,
-        "--filas": filasFigura,
-        "--proporcion-celda": proporcionCelda,
-      }}
-    >
-      {celdas.map(({ fila, columna, caracter, tipo, brillo }) => (
-        <span
-          key={`${fila}/${columna}`}
-          data-tipo={tipo}
-          style={{
-            gridArea: `${fila}/${columna}`,
-            "--brillo": tipo === "contorno" ? undefined : `${brillo}%`,
-          }}
-        >
-          {caracter}
-        </span>
-      ))}
+    <div className="figura-ascii" ref={figura} style={estilo}>
+      {temaTerminal || reproduccion === "inicial" ? children : (
+        <Suspense fallback={children}>
+          <FiguraAsciiAnimada reproduciendo={reproduccion === "activa"} />
+        </Suspense>
+      )}
     </div>
   );
 }

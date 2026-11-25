@@ -4,6 +4,7 @@
   position: relative;
   isolation: isolate;
   border-bottom: 1px solid transparent;
+  scroll-margin-top: var(--margen-ancla);
 }
 
 .superficie-seccion::after {
@@ -29,20 +30,15 @@
 /* Componentes compartidos de las secciones centrales. */
 .seccion-contenido {
   padding: clamp(48px, 5vw, 72px) var(--margen-seccion);
-  scroll-margin-top: var(--margen-ancla);
-}
-
-.tarjeta-proyecto > * {
-  min-width: 0;
 }
 
 .cabecera-seccion {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
 .etiqueta-seccion {
@@ -106,6 +102,6 @@
   gap: 8px;
   padding: 7px 10px;
   border: 1px solid var(--borde);
-  background: var(--superficie);
-  font-size: 12px;
+  background: var(--fondo-tarjeta);
+  font: 12px/1.6 var(--fuente-mono);
 }

@@ -15,7 +15,6 @@
 }
 
 .consola-directorio,
-.consola-selector-seccion,
 .consola-entrada,
 .arte-terminal,
 .inicio-terminal-arte,
@@ -38,6 +37,8 @@
   --tamano-terminal: .8125rem;
   --tamano-titulo-terminal: .9375rem;
   --color-ruta-terminal: #e081c3;
+  --color-navegacion-terminal: #72d7d2;
+  --color-listado-terminal: #e6bd70;
   --sombra-boton-principal: none;
   --duracion-transicion: 0s;
   --alto-cabecera: 52px;
@@ -87,13 +88,16 @@
 
 [data-tema="terminal"] .consola-portafolio {
   --escala-navegacion-terminal: 1.15;
+  --margen-consola: clamp(16px, 3vw, 40px);
   display: grid;
+  grid-template-areas: "directorio panel";
   grid-template-columns: calc(clamp(172px, 19vw, 248px) * var(--escala-navegacion-terminal)) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
   min-height: 0;
 }
 
 [data-tema="terminal"] .consola-directorio {
+  grid-area: directorio;
   display: flex;
   flex-direction: column;
   padding: 18px 12px;
@@ -132,18 +136,19 @@
   line-height: 1.1;
 }
 
-.consola-mascotas {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 24px;
+.consola-guardian {
+  display: block;
+  width: clamp(70px, 100dvh - 390px, 140px);
   margin-block-start: auto;
+  margin-inline: auto;
   padding-block-start: 10px;
+  translate: -20px;
 }
 
-.consola-mascotas img {
+.consola-guardian img {
   display: block;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
   image-rendering: pixelated;
 }
 
@@ -158,7 +163,7 @@
 }
 
 [data-tema="terminal"] .consola-panel {
-  --margen-consola: clamp(16px, 3vw, 40px);
+  grid-area: panel;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   min-width: 0;
@@ -215,11 +220,11 @@
 }
 
 .ficha-terminal-listado {
-  color: #e6bd70;
+  color: var(--color-listado-terminal);
 }
 
 .ficha-terminal-navegacion {
-  color: #72d7d2;
+  color: var(--color-navegacion-terminal);
 }
 
 .consola-atajos {

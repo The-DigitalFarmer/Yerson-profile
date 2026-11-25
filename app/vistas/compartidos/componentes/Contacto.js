@@ -2,6 +2,8 @@ import { canalesContacto } from "../contenido/canales";
 import ArteAscii from "../../terminal/componentes/ArteAscii";
 import TituloContactoTerminal from "../../terminal/componentes/TituloContactoTerminal";
 import LogoSocial from "./LogoSocial";
+import EnlaceExterno from "./EnlaceExterno";
+import SeccionPortafolio from "./SeccionPortafolio";
 
 const canalesDestacados = canalesContacto.filter(({ invitacion }) => invitacion);
 
@@ -20,8 +22,7 @@ function IconoDeContacto({ canal }) {
 
 export default function Contacto() {
   return (
-    <section className="seccion-contacto superficie-seccion" id="contacto" aria-labelledby="contact-title">
-      <p className="etiqueta-seccion">CONTACT</p>
+    <SeccionPortafolio className="seccion-contacto" id="contacto" tituloId="contact-title" etiqueta="CONTACT">
       <div className="distribucion-contacto">
         <div className="texto-contacto">
           <h2 className="titulo-seccion" id="contact-title">
@@ -36,12 +37,10 @@ export default function Contacto() {
         </div>
         <nav className="canales-contacto" aria-label="Canales de contacto">
           {canalesDestacados.map(({ id, nombre, enlace, enlaceConMensaje, invitacion, etiquetaAccesible }) => (
-            <a
+            <EnlaceExterno
               key={id}
               className={id === "gmail" ? "canal-contacto canal-contacto--gmail" : "canal-contacto"}
               href={enlaceConMensaje ?? enlace}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label={etiquetaAccesible}
             >
               <span className="cabecera-canal">
@@ -50,10 +49,10 @@ export default function Contacto() {
               </span>
               <strong>{nombre}</strong>
               <span className="invitacion-canal">{invitacion}</span>
-            </a>
+            </EnlaceExterno>
           ))}
         </nav>
       </div>
-    </section>
+    </SeccionPortafolio>
   );
 }
