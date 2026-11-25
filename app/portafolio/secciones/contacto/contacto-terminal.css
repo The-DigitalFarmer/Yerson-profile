@@ -1,0 +1,80 @@
+[data-tema="terminal"] .seccion-contacto .etiqueta-seccion,
+[data-tema="terminal"] .texto-contacto h2 br {
+  display: none;
+}
+
+[data-tema="terminal"] .texto-contacto h2 {
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 10px;
+  padding: clamp(8px, 1.45cqi, 18px);
+  border: 3px double color-mix(in srgb, var(--texto-tenue) 60%, var(--borde-intenso));
+  background: var(--superficie);
+  text-wrap: wrap;
+}
+
+[data-tema="terminal"] .titulo-contacto-terminal {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-navegacion-terminal);
+  font: 400 min(.9625rem, 1.855cqi, 2.03cqh)/1 var(--fuente-mono-grafica);
+  white-space: pre;
+}
+
+.titulo-contacto-terminal > span {
+  display: block;
+}
+
+@media (forced-colors: none) {
+  [data-tema="terminal"] .titulo-contacto-terminal {
+    background-image: linear-gradient(
+      color-mix(in srgb, var(--color-navegacion-terminal) 67%, white),
+      var(--color-navegacion-terminal) 45%,
+      color-mix(in srgb, var(--color-navegacion-terminal) 72%, black)
+    );
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+[data-tema="terminal"] .texto-contacto h2 > span:last-child {
+  color: var(--color-navegacion-terminal);
+}
+
+[data-tema="terminal"] .canales-contacto {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 12px;
+}
+
+[data-tema="terminal"] .canal-contacto {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 4px 12px;
+}
+
+[data-tema="terminal"] .cabecera-canal {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin: 0;
+}
+
+[data-tema="terminal"] .invitacion-canal {
+  grid-column: 2;
+}
+
+[data-tema="terminal"] .canal-contacto :is(.cabecera-canal, strong, .invitacion-canal) {
+  color: var(--texto-cuerpo);
+}
+
+[data-tema="terminal"] .canal-contacto:hover strong {
+  color: var(--naranja-intenso);
+  text-decoration: underline;
+}
+
+@container salida (width < 640px) {
+  [data-tema="terminal"] .canales-contacto {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0;
+  }
+}

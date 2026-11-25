@@ -1,0 +1,179 @@
+[data-tema="terminal"] .distribucion-presentacion {
+  width: 100%;
+}
+
+[data-tema="terminal"] .presentacion {
+  min-height: 0;
+  border: 0;
+}
+
+[data-tema="terminal"] .distribucion-presentacion {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  padding: 0 0 10px;
+}
+
+[data-tema="terminal"] :is(.fondo-ascii, .zona-perfil) {
+  display: none;
+}
+
+[data-tema="terminal"] .inicio-terminal-arte {
+  display: grid;
+  gap: clamp(16px, 2.6vw, 36px);
+  container-type: inline-size;
+  padding-block-end: 4px;
+}
+
+.inicio-terminal-marca,
+.inicio-terminal-ilustracion {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  color: var(--naranja-intenso);
+  letter-spacing: normal;
+  white-space: pre;
+}
+
+.inicio-terminal-marca {
+  /* El rótulo ocupa 96 columnas monoespaciadas de aproximadamente 0.6em. */
+  font: 400 min(.693rem, calc(69.3cqi / 74))/1 var(--fuente-mono-grafica);
+  text-shadow: 0 0 .75em var(--borde-naranja);
+}
+
+.inicio-terminal-sombra {
+  color: color-mix(in srgb, var(--naranja-intenso) 40%, transparent);
+  text-shadow: none;
+}
+
+.inicio-terminal-ilustracion {
+  /* Cincuenta columnas braille de aproximadamente 0.6em. */
+  font: 400 min(.61875rem, calc(90cqi / 31))/1.05 var(--fuente-mono-grafica);
+}
+
+[data-tema="terminal"] .texto-presentacion {
+  width: 100%;
+  max-width: 76ch;
+  margin-inline: 0;
+  text-align: start;
+}
+
+[data-tema="terminal"] .nombre-perfil {
+  margin-bottom: 6px;
+  color: var(--naranja-intenso);
+}
+
+[data-tema="terminal"] .presentacion h1 {
+  margin-bottom: 10px;
+  color: var(--texto);
+  text-transform: none;
+}
+
+[data-tema="terminal"] .presentacion h1 br {
+  display: none;
+}
+
+[data-tema="terminal"] .presentacion h1 span {
+  color: inherit;
+  text-shadow: none;
+  transform: none;
+}
+
+[data-tema="terminal"] .descripcion-presentacion {
+  margin-inline: 0;
+  text-wrap: pretty;
+}
+
+[data-tema="terminal"] .acciones-presentacion {
+  justify-content: flex-start;
+}
+
+[data-tema="terminal"] .consola-salida .rol-presentacion {
+  color: var(--color-ruta-terminal);
+}
+
+@container salida (height < 720px) {
+  [data-tema="terminal"] :is(.inicio-terminal-arte, .distribucion-presentacion) {
+    gap: 8px;
+  }
+
+  .inicio-terminal-marca {
+    font-size: min(.693rem, calc(69.3cqi / 74), 1.55cqh);
+  }
+
+  .inicio-terminal-ilustracion {
+    font-size: min(.61875rem, calc(90cqi / 31), .82cqh);
+  }
+
+  [data-tema="terminal"] :is(.subtitulo-presentacion, .descripcion-presentacion) {
+    margin-bottom: 7px;
+  }
+
+  [data-tema="terminal"] .explorar-habilidades {
+    margin-top: 6px;
+  }
+
+  [data-tema="terminal"] .presentacion .ficha-terminal-contenido,
+  [data-tema="terminal"] .linea-explorar {
+    display: none;
+  }
+}
+
+@container salida (height < 375px) {
+  [data-tema="terminal"] :is(.presentacion h1, .subtitulo-presentacion, .descripcion-presentacion, .nombre-perfil) {
+    margin-bottom: 3px;
+  }
+
+  [data-tema="terminal"] .acciones-presentacion {
+    gap: 0 12px;
+  }
+
+  [data-tema="terminal"] .acciones-presentacion .boton {
+    min-height: 28px;
+  }
+
+  [data-tema="terminal"] .distribucion-presentacion {
+    padding-bottom: 0;
+  }
+}
+
+@container salida (height < 440px) and (width < 540px) {
+  [data-tema="terminal"] .inicio-terminal-arte {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .inicio-terminal-marca {
+    font-size: min(.693rem, 1.08cqi, 1.55cqh);
+  }
+}
+
+@container salida (height < 360px) and (width < 540px) {
+  .inicio-terminal-ilustracion {
+    font-size: min(calc(90cqi / 31), .44cqh);
+  }
+}
+
+@container salida (height < 315px) and (width < 540px) {
+  [data-tema="terminal"] .distribucion-presentacion {
+    gap: 4px;
+  }
+
+  [data-tema="terminal"] .inicio-terminal-arte {
+    padding-block-end: 0;
+  }
+
+  .inicio-terminal-marca {
+    font-size: min(.8cqi, 1.2cqh);
+  }
+
+  .inicio-terminal-ilustracion {
+    font-size: min(calc(90cqi / 31), .34cqh);
+  }
+}
+
+@container salida (height < 475px) and (width >= 540px) {
+  [data-tema="terminal"] .distribucion-presentacion {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+  }
+}

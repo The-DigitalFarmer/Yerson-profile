@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { runInNewContext } from "node:vm";
-import { rutaRetrato } from "../app/vistas/compartidos/contenido/presentacion.js";
-import { claveTema, prepararTema } from "../app/vistas/compartidos/logica/tema-portafolio.js";
+import { rutaRetrato } from "../app/portafolio/secciones/presentacion/datos.js";
+import { claveTema, prepararTema } from "../app/portafolio/tema/tema-portafolio.js";
 
 function iniciarTema(localStorage) {
   const raiz = { dataset: {} };

@@ -1,0 +1,18 @@
+[data-tema="terminal"] .tarjeta-certificado {
+  display: grid;
+  gap: 6px 12px;
+  align-items: center;
+}
+
+[data-tema="terminal"] .tarjeta-certificado:has(.imagen-certificado) {
+  grid-template-columns: 76px minmax(0, 1fr);
+}
+
+[data-tema="terminal"] .imagen-certificado {
+  width: 100%;
+  border: 0;
+}
+
+[data-tema="terminal"] .detalle-certificado a {
+  min-height: 30px;
+}

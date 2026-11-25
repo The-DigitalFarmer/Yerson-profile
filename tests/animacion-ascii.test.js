@@ -8,7 +8,7 @@ import {
   filasFigura,
   fotogramasPorCiclo,
   obtenerFotogramaAscii,
-} from "../app/vistas/normal/logica/animacion-ascii.js";
+} from "../app/portafolio/normal/logica/animacion-ascii.js";
 
 test("el fondo ASCII es reproducible y usa un solo carácter por celda", () => {
   for (const [generar, columnas, filas] of [

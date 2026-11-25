@@ -1,0 +1,11 @@
+[data-tema="terminal"] .pie-de-pagina {
+  background: var(--superficie);
+}
+
+[data-tema="terminal"] .marco-pie-portafolio {
+  width: 100%;
+}
+
+[data-tema="terminal"] .datos-pie {
+  padding: 8px 16px;
+}

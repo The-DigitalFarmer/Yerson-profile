@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { seccionesNavegacion } from "../app/vistas/compartidos/contenido/navegacion.js";
-import { interpretarComando } from "../app/vistas/terminal/logica/comandos-terminal.js";
+import { seccionesNavegacion } from "../app/portafolio/navegacion/secciones.js";
+import { interpretarComando } from "../app/portafolio/terminal/logica/comandos-terminal.js";
 
 test("ls lista las secciones en el mismo orden que la navegación", () => {
   assert.deepEqual(interpretarComando("  LS  "), {

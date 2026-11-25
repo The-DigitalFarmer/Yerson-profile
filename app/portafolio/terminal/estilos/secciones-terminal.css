@@ -1,0 +1,138 @@
+[data-tema="terminal"] .consola-salida .marco-contenido {
+  width: 100%;
+}
+
+[data-tema="terminal"] .ficha-terminal-contenido {
+  display: inline-block;
+}
+
+[data-tema="terminal"] :is(.boton, .enlace-proyecto, .enlaces-enfoques a) {
+  min-height: 36px;
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: var(--naranja-intenso);
+  font-size: var(--tamano-terminal);
+}
+
+[data-tema="terminal"] :is(.boton, .enlace-proyecto, .enlaces-enfoques a):hover {
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+[data-tema="terminal"] .seccion-contenido,
+[data-tema="terminal"] .seccion-contacto {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+[data-tema="terminal"] .superficie-seccion::before,
+[data-tema="terminal"] .superficie-seccion::after {
+  display: none;
+}
+
+[data-tema="terminal"] .consola-salida .etiqueta-seccion {
+  margin-bottom: 6px;
+}
+
+[data-tema="terminal"] .consola-salida :is(h1, h2) {
+  font-size: var(--tamano-titulo-terminal);
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+
+[data-tema="terminal"] .consola-salida :is(h3, p) {
+  font-size: var(--tamano-terminal);
+  line-height: 1.3;
+}
+
+[data-tema="terminal"] .consola-salida p {
+  font-family: var(--fuente-texto);
+  letter-spacing: var(--espaciado-texto);
+}
+
+@container salida (height >= 400px) {
+  [data-tema="terminal"] .consola-salida :is(.descripcion-presentacion, .texto-introduccion-enfoques, .descripcion-enfoque, .texto-proyecto .texto-cuerpo, .descripcion-contacto) {
+    line-height: 1.5;
+  }
+}
+
+[data-tema="terminal"] .consola-salida :is(.etiqueta-seccion, .etiqueta-enfoque, .tipo-proyecto, .datos-certificado) {
+  font-size: .6875rem;
+}
+
+[data-tema="terminal"] .consola-salida :is(.etiqueta-enfoque, .datos-certificado time) {
+  color: #ff73bd;
+}
+
+[data-tema="terminal"] :is(.flecha-boton, .explorar-habilidades > span:first-child, .cabecera-canal > span) {
+  font-size: var(--tamano-terminal);
+}
+
+[data-tema="terminal"] :is(.red-habilidades, .cuadricula-certificados, .canales-contacto) {
+  gap: 0;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+[data-tema="terminal"] :is(.red-habilidades, .distribucion-contacto, .cuadricula-certificados) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+[data-tema="terminal"] :is(.cuadricula-enfoques, .cuadricula-proyectos, .distribucion-contacto) {
+  gap: 8px 18px;
+}
+
+[data-tema="terminal"] :is(.grupo-habilidades, .tarjeta-enfoque, .tarjeta-proyecto, .tarjeta-certificado, .canal-contacto) {
+  border: 0;
+  border-top: 1px solid var(--borde);
+  background: transparent;
+  padding: 8px 0;
+}
+
+[data-tema="terminal"] :is(.introduccion-enfoques h2, .texto-introduccion-enfoques, .tarjeta-enfoque h3, .etiqueta-enfoque, .descripcion-enfoque, .texto-contacto h2) {
+  margin: 0 0 6px;
+}
+
+@container salida (width < 640px) or (height < 440px) {
+  [data-tema="terminal"] .pagina-terminal[data-activa="false"] {
+    display: var(--pagina-inactiva-terminal, none);
+  }
+
+  [data-tema="terminal"] .controles-paginas-terminal {
+    display: var(--paginacion-terminal, flex);
+    align-items: center;
+    gap: 12px;
+    margin-block: 4px;
+  }
+
+  .controles-paginas-terminal button {
+    min-height: 32px;
+    padding: 4px 8px;
+    border: 1px solid var(--borde);
+    background: transparent;
+    color: var(--naranja-intenso);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .controles-paginas-terminal button[aria-disabled="true"] {
+    color: var(--texto-tenue);
+    cursor: default;
+  }
+}
+
+@container salida (height < 375px) {
+  [data-tema="terminal"] :is(.grupo-habilidades, .tarjeta-enfoque, .tarjeta-proyecto, .tarjeta-certificado, .canal-contacto) {
+    padding-block: 5px;
+  }
+}
+
+@container salida (height < 315px) and (width >= 540px) {
+  [data-tema="terminal"] :is(.red-habilidades, .cuadricula-certificados) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 14px;
+  }
+}

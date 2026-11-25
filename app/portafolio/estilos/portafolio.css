@@ -1,0 +1,25 @@
+@import "./tema.css";
+@import "./global.css";
+@import "./secciones.css";
+@import "./cabecera.css";
+@import "../normal/estilos/navegacion.css";
+@import "./pie-de-pagina.css";
+@import "../secciones/presentacion/presentacion.css";
+@import "../normal/estilos/fondo-ascii.css";
+@import "../secciones/habilidades/habilidades.css";
+@import "../secciones/perfil/perfil.css";
+@import "../secciones/proyectos/proyectos.css";
+@import "../secciones/certificados/certificados.css";
+@import "../secciones/contacto/contacto.css";
+
+/* Las reglas de Terminal se aplican después de los estilos base. */
+@import "../terminal/estilos/terminal.css";
+@import "../terminal/estilos/secciones-terminal.css";
+@import "../secciones/presentacion/presentacion-terminal.css";
+@import "../secciones/habilidades/habilidades-terminal.css";
+@import "../secciones/perfil/perfil-terminal.css";
+@import "../secciones/proyectos/proyectos-terminal.css";
+@import "../secciones/certificados/certificados-terminal.css";
+@import "../secciones/contacto/contacto-terminal.css";
+@import "./pie-de-pagina-terminal.css";
+@import "../terminal/estilos/adaptaciones-consola.css";

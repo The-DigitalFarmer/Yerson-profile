@@ -22,9 +22,10 @@ después `npm start`.
 
 ## Estructura
 
-- `app/page.js` y `app/layout.js` definen la página principal y su layout.
-- `app/vistas/normal/` contiene la navegación por desplazamiento, el menú móvil, la animación ASCII y sus estilos.
-- `app/vistas/terminal/` contiene el directorio, el formulario de comandos y los estilos de la vista Terminal. El intérprete recibe texto y devuelve un resultado sin interactuar con el navegador.
-- `app/vistas/compartidos/` contiene el contenido, las secciones, los estilos base y los hooks para leer el fragmento y recordar la sección de cada vista.
+- `app/page.js` carga `app/portafolio/Portafolio.js`, que compone la cabecera, las secciones y el pie de página. `app/layout.js` carga los estilos globales e inicializa la vista guardada.
+- `app/portafolio/secciones/` reúne el componente, los datos propios y los estilos de cada sección, incluidos sus ajustes de Terminal.
+- `app/portafolio/navegacion/` define los identificadores de sección y coordina el fragmento de la URL y el cambio de vista. `app/portafolio/tema/` gestiona la preferencia de vista.
+- `app/portafolio/normal/` contiene la navegación por desplazamiento, el menú móvil y la animación ASCII. `app/portafolio/terminal/` contiene el directorio, el formulario y el intérprete de comandos.
+- `app/portafolio/estilos/portafolio.css` fija el orden de carga de los estilos base y los ajustes de Terminal.
 - `public/assets/` contiene los logos, las imágenes y las fuentes locales.
 - `tests/` contiene las pruebas del portafolio.

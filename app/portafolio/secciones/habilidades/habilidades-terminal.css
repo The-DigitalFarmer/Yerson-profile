@@ -1,0 +1,50 @@
+[data-tema="terminal"] .consola-salida .resumen-habilidades h2 {
+  color: var(--color-navegacion-terminal);
+}
+
+[data-tema="terminal"] .resumen-habilidades {
+  justify-items: start;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: start;
+}
+
+[data-tema="terminal"] .grupo-habilidades:last-child:nth-child(odd) {
+  grid-column: auto;
+}
+
+[data-tema="terminal"] .grupo-habilidades {
+  display: grid;
+  grid-template-columns: minmax(0, 14ch) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+[data-tema="terminal"] .grupo-habilidades h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+[data-tema="terminal"] .grupo-habilidades::before,
+[data-tema="terminal"] .grupo-habilidades::after {
+  display: none;
+}
+
+[data-tema="terminal"] .insignia-herramienta {
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+[data-tema="terminal"] .lista-herramientas {
+  gap: 4px 12px;
+}
+
+@container salida (height < 315px) and (width >= 540px) {
+  [data-tema="terminal"] .grupo-habilidades:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
