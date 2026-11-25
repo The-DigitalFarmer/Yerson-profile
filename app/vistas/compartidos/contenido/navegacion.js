@@ -1,5 +1,7 @@
+export const idInicio = "inicio";
+
 export const seccionesNavegacion = [
-  { id: "inicio", etiqueta: "Inicio" },
+  { id: idInicio, etiqueta: "Inicio" },
   { id: "habilidades", etiqueta: "Habilidades" },
   { id: "sobre-mi", etiqueta: "Sobre mí" },
   { id: "proyectos", etiqueta: "Proyectos" },
@@ -7,6 +9,8 @@ export const seccionesNavegacion = [
   { id: "contacto", etiqueta: "Contacto" },
 ];
 
+const idsPorFragmento = new Map(seccionesNavegacion.map(({ id }) => [`#${id}`, id]));
+
 export function seccionDesdeFragmento(fragmento) {
-  return seccionesNavegacion.find(({ id }) => `#${id}` === fragmento)?.id;
+  return idsPorFragmento.get(fragmento);
 }

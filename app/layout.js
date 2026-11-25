@@ -12,6 +12,8 @@ import "./vistas/compartidos/estilos/proyectos.css";
 import "./vistas/compartidos/estilos/certificados.css";
 import "./vistas/compartidos/estilos/contacto.css";
 import "./vistas/terminal/estilos/terminal.css";
+import "./vistas/terminal/estilos/secciones-terminal.css";
+import "./vistas/terminal/estilos/adaptaciones-consola.css";
 import { prepararTema } from "./vistas/compartidos/logica/tema-portafolio";
 
 export const metadata = {

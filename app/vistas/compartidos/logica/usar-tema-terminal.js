@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { cambioTema, claveTema } from "./tema-portafolio";
 
-function temaTerminalActivo() {
+export function temaTerminalActivo() {
   return document.documentElement.dataset.tema === "terminal";
 }
 

@@ -1,34 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { seccionDesdeFragmento, seccionesNavegacion } from "../contenido/navegacion";
-import { cambioTema, claveTema } from "../logica/tema-portafolio";
-import { seleccionarTemaTerminal, usarTemaTerminal } from "../logica/usar-tema-terminal";
+import { useRef } from "react";
 import EnlacesNavegacion from "../../normal/componentes/EnlacesNavegacion";
-
-const idInicio = seccionesNavegacion[0].id;
-
-function obtenerSecciones() {
-  return seccionesNavegacion.map(({ id }) => document.getElementById(id)).filter(Boolean);
-}
-
-function leerSeccionNormal(secciones, altoCabecera) {
-  const altoVentana = window.innerHeight;
-  const margenAncla = secciones[0] ? parseFloat(getComputedStyle(secciones[0]).scrollMarginTop) : 0;
-  // El enlace activo sigue la posición de las anclas bajo la cabecera.
-  const umbral = Math.max(altoCabecera, margenAncla || 0) + 2;
-  const altoPagina = document.documentElement.scrollHeight;
-  const alFinalDePagina = window.scrollY > 0 && window.scrollY + altoVentana >= altoPagina - 1;
-
-  if (alFinalDePagina) {
-    const destino = secciones.find((elemento) => `#${elemento.id}` === window.location.hash);
-    const arriba = destino?.getBoundingClientRect().top;
-    if (arriba >= altoCabecera && arriba < altoVentana) return destino.id;
-    return secciones.at(-1)?.id ?? idInicio;
-  }
-
-  return secciones.findLast((elemento) => elemento.getBoundingClientRect().top <= umbral)?.id ?? idInicio;
-}
+import { usarMenuMovil } from "../../normal/logica/usar-menu-movil";
+import { leerSeccionVisible, usarSeccionVisible } from "../../normal/logica/usar-seccion-visible";
+import { usarCambioDeVista } from "../logica/usar-cambio-de-vista";
+import { usarTemaTerminal } from "../logica/usar-tema-terminal";
 
 function SelectorTema({ alSeleccionar }) {
   const terminal = usarTemaTerminal();
@@ -47,95 +24,14 @@ function SelectorTema({ alSeleccionar }) {
 
 export default function Cabecera({ marcaAscii }) {
   const cabecera = useRef(null);
-  const menu = useRef(null);
-  const controlMenu = useRef(null);
-  const seccionesGuardadas = useRef({});
-  const [seccionActiva, cambiarSeccionActiva] = useState(idInicio);
+  const { menu, controlMenu, cerrarMenu } = usarMenuMovil(cabecera);
+  const seccionActiva = usarSeccionVisible(cabecera);
+  const cambiarVista = usarCambioDeVista(() => leerSeccionVisible(cabecera.current?.offsetHeight ?? 0));
 
-  function cerrarMenu() {
-    if (menu.current) menu.current.open = false;
-  }
-
-  function cambiarVista(activarTerminal) {
+  function seleccionarVista(activarTerminal) {
     cerrarMenu();
-    const terminalActiva = document.documentElement.dataset.tema === "terminal";
-    if (activarTerminal === terminalActiva) return;
-
-    const vistaActual = terminalActiva ? "terminal" : "normal";
-    const vistaDestino = activarTerminal ? "terminal" : "normal";
-    const seccionActual = terminalActiva
-      ? seccionDesdeFragmento(window.location.hash) ?? idInicio
-      : leerSeccionNormal(obtenerSecciones(), cabecera.current?.offsetHeight ?? 0);
-    if (!seleccionarTemaTerminal(activarTerminal)) return;
-
-    seccionesGuardadas.current[vistaActual] = seccionActual;
-    let destino = seccionesGuardadas.current[vistaDestino];
-    try {
-      destino ??= seccionDesdeFragmento(localStorage.getItem(`${claveTema}-seccion-${vistaDestino}`));
-      localStorage.setItem(`${claveTema}-seccion-${vistaActual}`, `#${seccionActual}`);
-    } catch {
-      // La sección sigue disponible en memoria si el almacenamiento está bloqueado.
-    }
-
-    destino ??= idInicio;
-    const fragmento = `#${destino}`;
-    if (window.location.hash !== fragmento) window.location.replace(fragmento);
-    if (!activarTerminal) {
-      document.getElementById(destino)?.scrollIntoView({ behavior: "instant" });
-    }
+    cambiarVista(activarTerminal);
   }
-
-  useEffect(() => {
-    const secciones = obtenerSecciones();
-
-    const pantallaMovil = window.matchMedia("(max-width: 1020px)");
-    let fotogramaPendiente;
-    let ultimaSeccionActiva;
-
-    function actualizarSeccionActiva() {
-      fotogramaPendiente = undefined;
-      if (document.documentElement.dataset.tema === "terminal") return;
-
-      const id = leerSeccionNormal(secciones, cabecera.current?.offsetHeight ?? 0);
-      if (id !== ultimaSeccionActiva) {
-        ultimaSeccionActiva = id;
-        cambiarSeccionActiva(id);
-      }
-    }
-
-    function programarActualizacion() {
-      fotogramaPendiente ??= requestAnimationFrame(actualizarSeccionActiva);
-    }
-
-    function cerrarConEscape(evento) {
-      if (evento.key === "Escape" && menu.current?.open) {
-        cerrarMenu();
-        controlMenu.current?.focus();
-      }
-    }
-
-    function cerrarAlPulsarFuera(evento) {
-      if (!cabecera.current?.contains(evento.target)) cerrarMenu();
-    }
-
-    const eventos = new AbortController();
-    const opciones = { signal: eventos.signal };
-    document.addEventListener("keydown", cerrarConEscape, opciones);
-    document.addEventListener("click", cerrarAlPulsarFuera, opciones);
-    pantallaMovil.addEventListener("change", cerrarMenu, opciones);
-    window.addEventListener("scroll", programarActualizacion, { ...opciones, passive: true });
-    window.addEventListener("resize", programarActualizacion, opciones);
-    window.addEventListener("hashchange", programarActualizacion, opciones);
-    window.addEventListener(cambioTema, programarActualizacion, opciones);
-    window.addEventListener("pagehide", cerrarMenu, opciones);
-    window.addEventListener("pageshow", programarActualizacion, opciones);
-    actualizarSeccionActiva();
-
-    return () => {
-      eventos.abort();
-      if (fotogramaPendiente !== undefined) cancelAnimationFrame(fotogramaPendiente);
-    };
-  }, []);
 
   return (
     <header className="cabecera" ref={cabecera}>
@@ -149,7 +45,7 @@ export default function Cabecera({ marcaAscii }) {
           <nav id="main-navigation" className="navegacion-escritorio" aria-label="Navegación principal">
             <EnlacesNavegacion seccionActiva={seccionActiva} alNavegar={cerrarMenu} />
           </nav>
-          <SelectorTema alSeleccionar={cambiarVista} />
+          <SelectorTema alSeleccionar={seleccionarVista} />
         </div>
         <details id="mobile-menu" className="menu-movil" ref={menu}>
           <summary
